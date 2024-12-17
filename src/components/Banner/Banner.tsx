@@ -18,7 +18,7 @@ function Banner() {
         <div className="flex bottom-0 left-0 mt-auto">
         <Button 
             label="Saiba Mais"
-            className="bg-[#E1E7F8] hover:text[#E1E7F8] border-0"
+            className="bg-[#E1E7F8] hover:text[#E1E7F8] !border-0"
         />
         </div>
       </div>

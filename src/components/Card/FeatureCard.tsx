@@ -20,7 +20,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`flex max-w-96 bg-white shadow-lg p-4 hover:shadow-2xl transition duration-300 ${className}`}
+      className={`flex max-w-96 bg-[#FFF8F0] shadow-lg p-4 hover:shadow-2xl transition duration-300 ${className}`}
     >
       {/* Conteúdo Esquerdo (Texto e Botão) */}
       <div className="flex-1 flex flex-col space-y-4 pr-4">

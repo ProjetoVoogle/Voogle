@@ -18,7 +18,7 @@ function Footer() {
             </div>
 
             {/* Conteúdo do Footer */}
-            <div className="pt-16 pb-8 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center sm:text-left bg-gray-900">
+            <div className="pt-16 pb-8 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center sm:text-left bg-gray-900 pl-40 pr-40">
                 {/* Coluna 1 */}
                 <div className="space-y-2">
                     <h2 className="text-lg font-bold text-blue-500">Sobre a Voogle</h2>
@@ -70,7 +70,7 @@ function Footer() {
 
             {/* Rodapé com Copyright */}
             <div className="relative text-center py-4 bg-gray-900">
-                <p>&copy; 2023 Voogle. Todos os direitos reservados.</p>
+                <p>&copy; 2024 Voogle. Todos os direitos reservados.</p>
             </div>
         </div>
     );
