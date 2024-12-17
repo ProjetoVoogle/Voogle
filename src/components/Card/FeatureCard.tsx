@@ -5,7 +5,7 @@ export interface FeatureCardProps {
   text: string;
   description: string;
   image?: string;
-  buttonLabel: string;
+  buttonLabel?: string;
   onButtonClick?: () => void;
   className?: string;
 }
@@ -20,17 +20,19 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`flex max-w-96 bg-white shadow-lg rounded-lg p-4 hover:shadow-2xl transition duration-300 ${className}`}
+      className={`flex max-w-96 bg-white shadow-lg p-4 hover:shadow-2xl transition duration-300 ${className}`}
     >
       {/* Conteúdo Esquerdo (Texto e Botão) */}
       <div className="flex-1 flex flex-col space-y-4 pr-4">
         <h1 className="text-xl font-bold">{text}</h1>
         <p className="text-gray-600">{description}</p>
+        {buttonLabel ? (
+          <Button
+            label={buttonLabel}
+            onBtnClick={onButtonClick ? onButtonClick : undefined}
+          />
 
-        <Button
-          label={buttonLabel}
-          onBtnClick={onButtonClick ? onButtonClick : undefined}
-        />
+        ) : undefined}
       </div>
       {/* Imagem Opcional */}
       {image && (

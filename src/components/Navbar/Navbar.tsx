@@ -2,14 +2,20 @@ import React from "react";
 import MenuLateral from "../MenuLateral/MenuLateral.tsx"
 import Button from "../Button/Button.tsx"
 import { envioMsg } from "../../utils/envioMsg.ts";
+import useScrolled from "../../hooks/useScrolled.ts";
 
 export default function NavBar(){
+  const isScrolled = useScrolled();
 
     const number = import.meta.env.VITE_WPP_NUMBER
     const message = import.meta.env.VITE_WPP_MESSAGE
 
     return (
-        <div className="flex gap-4 fixed top-0 w-full bg-transparent z-10 p-4 pl-40 pr-40 bg-[#E1E7F8]">
+      <div
+      className={`flex gap-4 fixed top-0 w-full z-10 p-4 pl-40 pr-40 bg-[#E1E7F8] transition-shadow duration-300 ${
+        isScrolled ? "shadow-md" : ""
+      }`}
+    >
             
           <div className="flex gap-16 items-center" id="menuEsquerda">
             <MenuLateral />

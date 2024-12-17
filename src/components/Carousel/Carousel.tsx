@@ -8,15 +8,16 @@ import { FeatureCardProps } from "../Card/FeatureCard";
 
 interface MultiCardCarouselProps {
     cardsData: FeatureCardProps[];
+    showNavigation?: boolean;
   }
 
-  const MultiCardCarousel: React.FC<MultiCardCarouselProps> = ({ cardsData }) => {
+  const MultiCardCarousel: React.FC<MultiCardCarouselProps> = ({ cardsData, showNavigation =false }) => {
     return (
       <div className="max-w-6xl mx-auto p-6">
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Pagination, ...(showNavigation ? [Navigation] : [])]} 
           spaceBetween={20} // Espaço entre os slides
-          slidesPerView={4} // Número de cartões visíveis simultaneamente
+          slidesPerView={4}
           pagination={{ clickable: true }} // Paginação abaixo do carousel
           breakpoints={{
             0: { slidesPerView: 1 }, // 1 cartão em telas pequenas
@@ -37,6 +38,21 @@ interface MultiCardCarouselProps {
             </SwiperSlide>
           ))}
         </Swiper>
+        {showNavigation && (
+          <div className="flex justify-center space-x-8 mt-10">
+            <button
+              className="swiper-button-prev !text-[#44537A] text-white py-2 px-4 rounded"
+              style={{ position: "relative" }}
+            >
+            </button>
+            <button
+              className="swiper-button-next !text-[#44537A] text-white py-2 px-4 rounded"
+              style={{ position: "relative" }}
+            >
+            </button>
+          </div>
+        )}
+      
       </div>
     );
   };

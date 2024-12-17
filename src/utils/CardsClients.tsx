@@ -45,7 +45,10 @@ const ClientesCarousel: React.FC = () => {
 
   return(
     <div>
-      <MultiCardCarousel cardsData={cards}/>
+      <MultiCardCarousel 
+      cardsData={cards}
+      showNavigation={true}
+      />
     </div>
   )
 };

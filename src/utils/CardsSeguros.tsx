@@ -45,7 +45,9 @@ const SeguroCarousel: React.FC = () => {
 
   return(
     <div>
-      <MultiCardCarousel cardsData={cards}/>
+      <MultiCardCarousel 
+      cardsData={cards}
+      />
     </div>
   )
 };
