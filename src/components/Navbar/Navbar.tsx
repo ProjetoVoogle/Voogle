@@ -1,93 +1,137 @@
 import React, { useState } from "react";
-import MenuLateral from "../MenuLateral/MenuLateral.tsx";
 import Button from "../Button/Button.tsx";
-import { envioMsg } from "../../utils/envioMsg.ts";
 import useScrolled from "../../hooks/useScrolled.ts";
+import { envioMsg } from "../../utils/envioMsg.ts";
 
 export default function NavBar() {
   const isScrolled = useScrolled();
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>("ParaVocê");
+  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
 
-  const number: string = import.meta.env.VITE_WPP_NUMBER;
-  const message: string = import.meta.env.VITE_WPP_MESSAGE;
+  const number = import.meta.env.VITE_WPP_NUMBER;
+  const message = import.meta.env.VITE_WPP_MESSAGE;
 
-  // Função para exibir o menu lateral ao passar o mouse sobre os links
-  const handleMouseEnter = () => {
-    setIsMenuVisible(true);
-  };
-
-  // Função para esconder o menu lateral quando o mouse sair dos links
-  const handleMouseLeave = () => {
-    setIsMenuVisible(false);
+  const renderContent = () => {
+    if (activeTab === "ParaVocê") {
+      return (
+        <div className="grid grid-cols-2 gap-4 p-4">
+          <div>
+            <a href="#" className="hover:text-blue-500 block">Seguro Auto</a>
+            <a href="#" className="hover:text-blue-500 block">Seguro Residencial</a>
+            <a href="#" className="hover:text-blue-500 block">Seguro Viagem</a>
+            <a href="#" className="hover:text-blue-500 block">Seguro Celular</a>
+            <a href="#" className="hover:text-blue-500 block">Seguro Vida</a>
+          </div>
+          <div>
+            <a href="#" className="hover:text-blue-500 block">Seguro Bike</a>
+            <a href="#" className="hover:text-blue-500 block">Equipamentos Portáteis</a>
+            <a href="#" className="hover:text-blue-500 block">Seguro Imobiliária</a>
+            <a href="#" className="hover:text-blue-500 block">Seguro Carta Verde</a>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="grid grid-cols-2 gap-4 p-4">
+        <div>
+          <a href="#" className="hover:text-blue-500 block">Proteção Combinada</a>
+          <a href="#" className="hover:text-blue-500 block">Responsabilidade Civil</a>
+          <a href="#" className="hover:text-blue-500 block">Seguro Fiança</a>
+        </div>
+        <div>
+          <a href="#" className="hover:text-blue-500 block">Máquinas e Equipamentos</a>
+          <a href="#" className="hover:text-blue-500 block">Eventos</a>
+          <a href="#" className="hover:text-blue-500 block">Caminhão</a>
+        </div>
+      </div>
+    );
   };
 
   return (
     <div
-      className={`flex gap-4 fixed top-0 w-full z-10 p-4 pl-40 pr-40 bg-[#E1E7F8] transition-shadow duration-300 ${
+      className={`flex gap-4 fixed top-0 w-full z-10 p-4 pl-40 pr-40 bg-[#ffffff] transition-shadow duration-300 ${
         isScrolled ? "shadow-md" : ""
       }`}
     >
-      <div className="flex gap-16 items-center" id="menuEsquerda">
-        {/* Menu lateral ativado ao passar o mouse sobre os links */}
-        <div
-          className={`${
-            isMenuVisible ? "opacity-100 max-h-60" : "opacity-0 max-h-0"
-          } transition-all duration-1000 ease-in-out fixed top-16 left-0 w-full bg-[#E1E7F8] opacity-90 overflow-hidden`}
+      {/* Menu Principal */}
+      <div
+        className="flex gap-16 items-center relative"
+        onMouseLeave={() => setIsDropdownVisible(false)}
+      >
+        <a
+          href="/"
+          className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
         >
-          <ul className="flex justify-center gap-16 p-4 text-white">
-            <li className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-1000">
-              <a href="#">Home</a>
-            </li>
-            <li className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-1000">
-              <a href="#">Sobre</a>
-            </li>
-            <li className="relative hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-1000">
-              <a href="#">Serviços</a>
-            </li>
-            <li className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-1000">
-              <a href="#">Contato</a>
-            </li>
-          </ul>
+          Home
+        </a>
+
+        <div
+          className="relative"
+          onMouseEnter={() => setIsDropdownVisible(true)}
+        >
+          
+          <a
+            href="#"
+            className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
+          >
+            Seguros
+          </a>
+
+          {/* Área Invisível que mantém o hover */}
+          {isDropdownVisible && (
+            <div
+              className="absolute left-0 top-full mr-[15px] w-[500px] h-[15px] bg-transparent"
+              onMouseEnter={() => setIsDropdownVisible(true)} // Garante hover contínuo
+              onMouseLeave={() => setIsDropdownVisible(false)}
+            >
+              <div className="absolute left-0 top-[10px] bg-white shadow-lg border rounded-md w-[500px]">
+                {/* Seta Indicadora */}
+                <div className="absolute -top-2 left-10 w-4 h-4 bg-white rotate-45 border-t border-l"></div>
+                {/* Tabs */}
+                <div className="p-2 border-b flex gap-2">
+                  <button
+                    onClick={() => setActiveTab("ParaVocê")}
+                    className={`p-2 rounded-md ${
+                      activeTab === "ParaVocê" ? "bg-blue-100 text-blue-600" : ""
+                    }`}
+                  >
+                    Para Você
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("ParaEmpresa")}
+                    className={`p-2 rounded-md ${
+                      activeTab === "ParaEmpresa" ? "bg-blue-100 text-blue-600" : ""
+                    }`}
+                  >
+                    Para Empresa
+                  </button>
+                </div>
+                {/* Conteúdo Dinâmico */}
+                {renderContent()}
+              </div>
+            </div>
+          )}
         </div>
 
         <a
           href="#"
           className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
-          onMouseEnter={handleMouseEnter} // Exibir menu ao passar o mouse sobre o link
-          onMouseLeave={handleMouseLeave} // Esconder menu quando o mouse sair
-        >
-          Para Você
-        </a>
-        <a
-          href="#"
-          className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          Para Sua Empresa
-        </a>
-        <a
-          href="#"
-          className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
         >
           Sobre
         </a>
         <a
           href="/Contato"
           className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
         >
           Contato
         </a>
       </div>
 
-      <div id="menuDireita" className="ml-auto">
-        <Button
-          label="Contrate-nos"
-          onBtnClick={() => envioMsg({ number, message })}
+      {/* Botão Direito */}
+      <div className="ml-auto">
+        <Button 
+        label="Contrate-nos" 
+        onBtnClick={() => envioMsg({ number, message })}
         />
       </div>
     </div>

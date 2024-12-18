@@ -8,6 +8,7 @@ export interface FeatureCardProps {
   buttonLabel?: string;
   onButtonClick?: () => void;
   className?: string;
+  category?: string
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({

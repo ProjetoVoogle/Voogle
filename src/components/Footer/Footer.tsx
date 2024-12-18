@@ -12,7 +12,7 @@ function Footer() {
                 >
                     <path
                         d="M0,0V46.29c120,22,240,22,360,0S600,2,720,24s240,22,360,0S1200,2,1200,2V0Z"
-                        fill="#E1E7F8"
+                        fill="#FFFFFF"
                     ></path>
                 </svg>
             </div>

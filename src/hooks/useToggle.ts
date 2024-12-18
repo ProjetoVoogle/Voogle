@@ -7,7 +7,7 @@ function useToggle(initialState: boolean = false){
         setIsOpen(prevState => !prevState)
     }
 
-    return {isOpen, toggle, setIsOpen}
+    return {isOpen, toggle}
 }
 
 export default useToggle
