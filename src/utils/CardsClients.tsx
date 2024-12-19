@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import usuarioPng from "../imgs/usuario.png"
+import usuarioPng from "../imgs/usuario.png";
 
 const cards = [
   {
@@ -35,7 +35,21 @@ const cards = [
 const ClientesCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const visibleCards = 3; // Mostra 3 cards por vez
+  // Determina o número de cards visíveis dinamicamente
+  const getVisibleCards = () => {
+    if (window.innerWidth < 640) return 1; // Mobile
+    if (window.innerWidth < 1024) return 2; // Tablet
+    return 3; // Desktop
+  };
+
+  const [visibleCards, setVisibleCards] = useState(getVisibleCards());
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCards(getVisibleCards());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const extendedCards = [...cards, ...cards]; // Loop infinito
 
   useEffect(() => {
@@ -72,17 +86,21 @@ const ClientesCarousel: React.FC = () => {
         <div
           className="flex gap-6 transition-transform duration-500 ease-in-out"
           style={{
-            transform: `translateX(-${(currentIndex % cards.length) * (100 / visibleCards)}%)`,
+            transform: `translateX(-${
+              (currentIndex % cards.length) * (100 / visibleCards)
+            }%)`,
           }}
         >
           {extendedCards.map((card, index) => (
             <div
               key={index}
-              className="bg-[#E0F0FF] rounded-xl shadow-lg p-6 w-[calc(33.33%-1.5rem)] flex-shrink-0 text-center border border-gray-200 flex flex-col justify-between"
+              className={`bg-[#E0F0FF] rounded-xl shadow-lg p-6 flex-shrink-0 text-center border border-gray-200 flex flex-col justify-between w-[50%]`}
+              style={{
+                width: `${100 / visibleCards}%`, // Ajusta dinamicamente o tamanho do card
+              }}
               data-aos="zoom-in"
               data-aos-duration="1000"
               data-aos-delay={`${index * 200}`}
-
             >
               <div className="">
                 {/* Ícone de citação */}
@@ -98,8 +116,12 @@ const ClientesCarousel: React.FC = () => {
                 <div className="w-full border-t border-gray-300 my-4"></div>
 
                 {/* Autor */}
-                <div className="flex flex-row mb-auto gap-3">
-                  <img src={card.image} alt="Usuário" className="w-12 h-12" />
+                <div className="flex flex-row mb-auto gap-3 items-center">
+                  <img
+                    src={card.image}
+                    alt="Usuário"
+                    className="w-12 h-12 rounded-full"
+                  />
                   <h4 className="font-bold text-gray-800 text-sm text-start ">
                     {card.author.split("\n").map((line, idx) => (
                       <React.Fragment key={idx}>

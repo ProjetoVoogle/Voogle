@@ -7,6 +7,7 @@ export default function NavBar() {
   const isScrolled = useScrolled();
   const [activeTab, setActiveTab] = useState<string>("ParaVocê");
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const number = import.meta.env.VITE_WPP_NUMBER;
   const message = import.meta.env.VITE_WPP_MESSAGE;
@@ -49,13 +50,23 @@ export default function NavBar() {
 
   return (
     <div
-      className={`flex gap-4 fixed top-0 w-full z-10 p-4 pl-40 pr-40 bg-[#ffffff] transition-shadow duration-300 ${
+      className={`flex flex-wrap md:flex-nowrap pl-40 pr-40 gap-4 fixed top-0 w-full z-10 p-4 bg-[#ffffff] transition-shadow duration-300 ${
         isScrolled ? "shadow-md" : ""
       }`}
     >
+      {/* Botão de menu para dispositivos móveis */}
+      <button
+        className="md:hidden block ml-2 text-[#44537A] focus:outline-none"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        ☰
+      </button>
+
       {/* Menu Principal */}
       <div
-        className="flex gap-16 items-center relative"
+        className={`flex flex-col md:flex-row gap-16 items-center w-full ${
+          isMobileMenuOpen ? "block" : "hidden md:flex"
+        }`}
         onMouseLeave={() => setIsDropdownVisible(false)}
       >
         <a
@@ -69,7 +80,6 @@ export default function NavBar() {
           className="relative"
           onMouseEnter={() => setIsDropdownVisible(true)}
         >
-          
           <a
             href="#"
             className="text-[#44537A] hover:text-blue-500 transition duration-300 font-bold"
@@ -77,39 +87,36 @@ export default function NavBar() {
             Seguros
           </a>
 
-          {/* Área Invisível que mantém o hover */}
+          {/* Dropdown para Seguros */}
           {isDropdownVisible && (
-  <div
-    className="absolute left-0 top-full mt-2 bg-white shadow-lg border rounded-lg w-[500px] transition-all duration-300"
-    onMouseEnter={() => setIsDropdownVisible(true)}
-    onMouseLeave={() => setIsDropdownVisible(false)}
-  >
-    {/* Seta Indicadora */}
-    <div className="absolute -top-2 left-10 w-4 h-4 bg-white rotate-45 border border-gray-200"></div>
-    {/* Tabs */}
-    <div className="p-3 border-b flex gap-4">
-      <button
-        onClick={() => setActiveTab("ParaVocê")}
-        className={`px-4 py-2 rounded-lg font-medium text-sm ${
-          activeTab === "ParaVocê" ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100 text-gray-700"
-        }`}
-      >
-        Para Você
-      </button>
-      <button
-        onClick={() => setActiveTab("ParaEmpresa")}
-        className={`px-4 py-2 rounded-lg font-medium text-sm ${
-          activeTab === "ParaEmpresa" ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100 text-gray-700"
-        }`}
-      >
-        Para Empresa
-      </button>
-    </div>
-    {/* Conteúdo Dinâmico */}
-    {renderContent()}
-  </div>
-)}
-
+            <div
+              className="absolute left-0 top-full mr-[15px] w-[300px] md:w-[500px] bg-white shadow-lg border rounded-md"
+              onMouseEnter={() => setIsDropdownVisible(true)}
+              onMouseLeave={() => setIsDropdownVisible(false)}
+            >
+              {/* Tabs */}
+              <div className="p-2 border-b flex gap-2">
+                <button
+                  onClick={() => setActiveTab("ParaVocê")}
+                  className={`p-2 rounded-md ${
+                    activeTab === "ParaVocê" ? "bg-blue-100 text-blue-600" : ""
+                  }`}
+                >
+                  Para Você
+                </button>
+                <button
+                  onClick={() => setActiveTab("ParaEmpresa")}
+                  className={`p-2 rounded-md ${
+                    activeTab === "ParaEmpresa" ? "bg-blue-100 text-blue-600" : ""
+                  }`}
+                >
+                  Para Empresa
+                </button>
+              </div>
+              {/* Conteúdo Dinâmico */}
+              {renderContent()}
+            </div>
+          )}
         </div>
 
         <a
@@ -127,10 +134,11 @@ export default function NavBar() {
       </div>
 
       {/* Botão Direito */}
-      <div className="ml-auto"> 
+      <div className="ml-auto">
         <Button 
-        label="Contrate-nos" 
-        onBtnClick={() => envioMsg({ number, message })}
+          label="Contrate-nos" 
+          onBtnClick={() => envioMsg({ number, message })}
+          className="whitespace-nowrap"
         />
       </div>
     </div>

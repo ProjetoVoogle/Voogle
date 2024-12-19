@@ -312,18 +312,17 @@ function Home() {
       {/*Seção dos Seguros Primarios*/}
 
       <section
-        className="flex flex-col gap-16 mt-[6%] pl-40 pr-40"
+        className="flex flex-col gap-16 mt-[6%] pl-8 pr-8 lg:pl-40 lg:pr-40 md:pl-20 md:pr-20 sm:pl-8 sm:pr-8 sm:mt-[10%] justify-center"
         id="CardContainer"
       >
         {/* Seguro 1 */}
         <div
           id="Seguro1"
-          className="flex flex-col md:flex-row gap-6 items-center"
+          className="flex flex-col md:flex-row gap-6 items-center justify-center"
           data-aos="fade-up-right"
-
         >
           {/* Imagem */}
-          <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
+          <div className="w-full md:w-[60%] h-[250px] md:h-[350px] shadow-lg bg-gray-100">
             <img
               src={seguroVeiculoImg}
               alt="Seguro de Automóveis"
@@ -333,16 +332,16 @@ function Home() {
           </div>
 
           {/* Informações */}
-          <div className="md:w-[40%] !h-full w-full flex flex-col gap-3 pl-6 pr-6 justify-between">
-            <h1 className="text-4xl font-bold text-[#1D2745]">
+          <div className="w-full md:w-[40%] flex flex-col gap-3 px-4 sm:px-6 justify-between">
+            <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Seguro de Automóveis
             </h1>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Proteja seu veículo contra roubo, acidentes e danos com as
               melhores condições do mercado. Cobertura completa e assistência
               24h.
             </p>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Escolha o seguro ideal para seu perfil e viaje com tranquilidade.
             </p>
             <Button
@@ -355,11 +354,11 @@ function Home() {
         {/* Seguro 2 */}
         <div
           id="Seguro2"
-          className="flex flex-col md:flex-row-reverse gap-6 items-center"
+          className="flex flex-col md:flex-row-reverse gap-6 items-center justify-center"
           data-aos="fade-up-left"
         >
           {/* Imagem */}
-          <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
+          <div className="w-full md:w-[60%] h-[250px] md:h-[350px] shadow-lg bg-gray-100">
             <img
               src={seguroSaudeImg}
               alt="Seguro de Saúde"
@@ -369,15 +368,15 @@ function Home() {
           </div>
 
           {/* Informações */}
-          <div className="md:w-[40%] w-full flex flex-col gap-3 pl-6 pr-6 text-end items-end">
-            <h1 className="text-4xl font-bold text-[#1D2745]">
+          <div className="w-full md:w-[40%] flex flex-col gap-3 px-4 sm:px-6 text-end items-end">
+            <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Seguro de Saúde
             </h1>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Garanta sua saúde e de sua família com cobertura médica completa.
               Planos adaptados às suas necessidades.
             </p>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Tenha acesso a consultas, exames e internações com total
               comodidade e rapidez.
             </p>
@@ -391,12 +390,11 @@ function Home() {
         {/* Seguro 3 */}
         <div
           id="Seguro3"
-          className="flex flex-col md:flex-row gap-6 items-center"
+          className="flex flex-col md:flex-row gap-6 items-center justify-center"
           data-aos="fade-up-right"
-
         >
           {/* Imagem */}
-          <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
+          <div className="w-full md:w-[60%] h-[250px] md:h-[350px] shadow-lg bg-gray-100">
             <img
               src={seguroVidaImg}
               alt="Seguro de Vida"
@@ -406,15 +404,15 @@ function Home() {
           </div>
 
           {/* Informações */}
-          <div className="md:w-[40%] w-full flex flex-col gap-3 pl-6 pr-6">
-            <h1 className="text-4xl font-bold text-[#1D2745]">
+          <div className="w-full md:w-[40%] flex flex-col gap-3 px-4 sm:px-6">
+            <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Seguro de Vida
             </h1>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Proporcione segurança financeira à sua família em momentos
               inesperados. Cobertura ideal para imprevistos.
             </p>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Planos flexíveis para atender suas prioridades e objetivos de
               vida.
             </p>
@@ -428,11 +426,11 @@ function Home() {
         {/* Seguro 4 */}
         <div
           id="Seguro4"
-          className="flex flex-col md:flex-row-reverse gap-6 items-center"
+          className="flex flex-col md:flex-row-reverse gap-6 items-center justify-center"
           data-aos="fade-up-left"
         >
           {/* Imagem */}
-          <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
+          <div className="w-full md:w-[60%] h-[250px] md:h-[350px] shadow-lg bg-gray-100">
             <img
               src={financiamentoEConsorcioImg}
               alt="Financiamentos e Consórcios"
@@ -442,15 +440,15 @@ function Home() {
           </div>
 
           {/* Informações */}
-          <div className="md:w-[40%] w-full flex flex-col gap-3 pl-6 pr-6 text-end items-end">
-            <h1 className="text-4xl font-bold text-[#1D2745]">
+          <div className="w-full md:w-[40%] flex flex-col gap-3 px-4 sm:px-6 text-end items-end">
+            <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Financiamentos e Consórcios
             </h1>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Realize seus sonhos com as melhores opções de financiamento e
               consórcio. Flexibilidade e facilidade para seu orçamento.
             </p>
-            <p className="text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
               Adquira seu imóvel ou veículo com parcelas que cabem no bolso.
             </p>
             <Button
@@ -459,52 +457,44 @@ function Home() {
             />
           </div>
         </div>
+
       </section>
 
       {/*Seção das Vantagens da Plataforma*/}
 
       {/* Seção das Vantagens da Plataforma */}
-      <section className="mt-[7%] pl-40 pr-40" id="SecaoVantagens">
-        <h1
-          className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
-          data-aos="fade-up"
+      <section className="mt-8 px-4 sm:px-8 md:px-16 lg:px-40" id="SecaoVantagens">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]" data-aos="fade-up"
           data-aos-duration="1000"
         >
           Vantagens da Voogle
         </h1>
 
-        <section className="flex justify-center items-center mt-16 mb-16 px-8">
-          <div
-            className="flex flex-wrap md:flex-nowrap bg-[#E0F0FF] rounded-3xl shadow-lg w-full max-w-[1200px] overflow-hidden"
-            data-aos="zoom-in"
+        <section className="flex flex-col items-center mt-8 md:mt-16 mb-8 md:mb-16">
+          <div className="flex flex-wrap md:flex-nowrap bg-[#FFF8F0] rounded-3xl shadow-lg w-full max-w-[1200px] overflow-hidden justify-center" data-aos="zoom-in"
             data-aos-duration="1200"
           >
             {/* Conteúdo de Texto */}
-            <div
-              className="flex flex-col justify-center p-8 md:w-1/2"
-              data-aos="fade-right"
+            <div className="flex flex-col justify-center p-4 sm:p-8 md:w-1/2" data-aos="fade-right"
               data-aos-duration="1000"
             >
-              <h2 className="text-3xl font-bold text-[#44537A] mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1D2745] mb-4">
                 Porque cotar com a{" "}
-                <span className="text-[#1D2745]">Voogle?</span>
+                <span className="text-[#44537A]">Voogle?</span>
               </h2>
-              <p className="text-[#44537A] leading-relaxed mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                explicabo suscipit repellat ratione blanditiis officia earum et,
-                odit assumenda
+              <p className="text-sm sm:text-base text-[#44537A] leading-relaxed mb-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius explicabo
+                suscipit repellat ratione blanditiis officia earum et, odit assumenda
               </p>
-              <p className="text-[#44537A] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#44537A] leading-relaxed">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                perspiciatis maiores pariatur ea eaque ullam, magni at ipsam
-                accusantium ut. Dolorem, pariatur!
+                perspiciatis maiores pariatur ea eaque ullam, magni at ipsam accusantium
+                ut. Dolorem, pariatur!
               </p>
             </div>
 
             {/* Imagem e Benefícios */}
-            <div
-              className="relative flex items-center md:w-1/2 bg-[#E0F0FF)]"
-              data-aos="fade-left"
+            <div className="relative flex items-center md:w-1/2 bg-[#FFF8F0] " data-aos="fade-left"
               data-aos-duration="1000"
             >
               {/* Imagem Principal */}
@@ -512,7 +502,7 @@ function Home() {
                 <img
                   src="https://img.freepik.com/fotos-gratis/homem-maduro-feliz-tendo-consultas-com-um-medico-sobre-apolice-de-seguro-de-saude-durante-uma-reuniao-na-clinica_637285-1869.jpg"
                   alt="Homem feliz usando notebook"
-                  className="rounded-tl-[5rem] rounded-bl-[5rem] w-full h-auto"
+                  className="lg:rounded-tl-[2rem] lg:rounded-bl-[2rem] md:rounded-tl-[2rem] md:rounded-bl-[2rem] w-full h-auto"
                   loading="lazy"
                 />
               </div>
@@ -522,10 +512,11 @@ function Home() {
       </section>
 
 
+
       {/*Seção dos Seguros Secundarios*/}
 
       {/* Seção dos Seguros Secundários */}
-      <section className="mt-[7%]" id="SecaoCarrossel">
+      <section className="mt-[7%] " id="SecaoCarrossel">
         <h1
           className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
           data-aos="fade-up"
@@ -542,28 +533,39 @@ function Home() {
 
       {/*Seção dos Depoimentos de Clientes*/}
 
-      <section className="mt-[7%] mb-[7%] pl-40 pr-40" id="SecaoDepoimentos">
-        <h1 className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]" data-aos="fade-up"
-          data-aos-duration="1000">
+      <section
+        className="mt-[7%] mb-[7%] px-4 md:px-20 lg:px-40 w-[90%] text-justify"
+        id="SecaoDepoimentos"
+      >
+        <h1
+          className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           O que nossos clientes falam sobre a Voogle
         </h1>
-        <div className="flex flex-row">
-          <div className="w-[40%] justify-between flex flex-col mt-[32px] mb-[80px]" data-aos="fade-right"
-            data-aos-duration="1000">
-            <p className="text-lg leading-relaxed text-[#44537A] font-medium">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-              corrupti quos adipisci, mollitia earum maxime quam excepturi, rem
-              autem ipsam molestiae reprehenderit minus, officiis distinctio s
-              equi culpa voluptas? Veritatis, ipsa!
+        <div className="flex flex-col lg:flex-row">
+          {/* Coluna de texto */}
+          <div
+            className="w-full lg:w-[40%] flex flex-col gap-6 mt-[32px] mb-[40px]"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <p className="text-base md:text-lg leading-relaxed text-[#44537A] font-medium">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error corrupti
+              quos adipisci, mollitia earum maxime quam excepturi, rem autem ipsam
+              molestiae reprehenderit minus, officiis distinctio sequiqu culpa
+              voluptas? Veritatis, ipsa!
             </p>
 
-            <p className="text-lg leading-relaxed text-[#44537A] font-medium">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Aspernatur illum explicabo voluptates id beatae dolores asperiores
-              fugiat ipsam reprehenderit esse, recusandae magnam assumenda quos
-              in autem laboriosam, excepturi non alias.
+            <p className="text-base md:text-lg leading-relaxed text-[#44537A] font-medium">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur
+              illum explicabo voluptates id beatae dolores asperiores fugiat ipsam
+              reprehenderit esse, recusandae magnam assumenda quos in autem
+              laboriosam, excepturi non alias.
             </p>
-            <div className="mt-100%">
+
+            <div className="mt-4 lg:mt-auto flex justify-center lg:justify-start">
               <Button
                 label="Contrate-nos"
                 onBtnClick={() => envioMsg({ number, message })}
@@ -571,12 +573,17 @@ function Home() {
             </div>
           </div>
 
-          <div className="w-[60%]" data-aos="fade-left"
-            data-aos-duration="1000">
+          {/* Carrossel de clientes */}
+          <div
+            className="w-[100%] ml-[-5%] lg:ml-[0] lg:w-[60%] mt-8 lg:mt-0"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
             <ClientesCarousel />
           </div>
         </div>
       </section>
+
 
       {isScrolled && (
         <div

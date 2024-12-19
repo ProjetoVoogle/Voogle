@@ -123,7 +123,7 @@ const SeguroCarousel: React.FC = () => {
                 className="bg-white shadow-lg w-[300px] h-[350px] flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] hover:shadow-2xl overflow-hidden cursor-grab"
                 data-aos="fade-up"
                 data-aos-duration="1000"
-                data-aos-delay={`${index * 200}`}
+                data-aos-delay={`${index * 250}`}
               >
                 <div className="p-4">
                   <img
