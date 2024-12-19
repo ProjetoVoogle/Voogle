@@ -13,15 +13,20 @@ import financiamentoEConsorcioImg from "../imgs/financiamentoEConsorcio.jpeg";
 import bannerImg01 from "../imgs/bannerImg1.jpg";
 import bannerImg02 from "../imgs/bannerImg2.jpg";
 import bannerImg04 from "../imgs/bannerImg4.jpg";
+import bannerImg03 from "../imgs/bannerImg3.jpg"
 import bannerImg05 from "../imgs/bannerImg5.jpg";
 import bannerImg06 from "../imgs/bannerImg6.jpg";
 import bannerImg07 from "../imgs/bannerImg7.jpg";
 import bannerImg08 from "../imgs/bannerImg8.jpg";
 import bannerImg09 from "../imgs/bannerImg9.jpg"
-import logo from "../imgs/Logo.png";
+import Logo from "../imgs/Logo.png";
 import useScrolled from "../hooks/useScrolled.ts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons"; // Exemplo de ícone sólido
+import { faHome, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons"; // Exemplo de ícone sólido
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { useEffect } from "react";
+
 
 function Home() {
   useDocumentTitle("Home");
@@ -30,6 +35,13 @@ function Home() {
 
   const number = import.meta.env.VITE_WPP_NUMBER;
   const message = import.meta.env.VITE_WPP_MESSAGE;
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duração da animação em milissegundos
+      once: true,     // Se `true`, animação ocorre apenas uma vez ao rolar a página
+    });
+  }, []);
 
   return (
     <div
@@ -42,12 +54,15 @@ function Home() {
 
       <section className="bg-gradient-to-b from-blue-700 to-white min-h-screen relative">
         {/* Tela de boas-vindas com logo */}
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div
+          className="flex flex-col items-center justify-center h-screen w-screen"
+          data-aos="fade-in">
           <img
-            src={logo}
+            src={Logo}
             alt="Logo Voogle"
             className="h-auto mb-6"
             loading="lazy"
+            data-aos="zoom-in"
           />
           <div className="animate-bounce">
             <svg
@@ -56,6 +71,7 @@ function Home() {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              data-aos="fade-down"
             >
               <path
                 strokeLinecap="round"
@@ -69,116 +85,225 @@ function Home() {
 
         {/* Conteúdo principal */}
         <div id="main-content" className="p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#003366]">
-              Bem-vindo à Voogle
+          <div className="text-center mb-8" data-aos="fade-up">
+            <h1 className="text-4xl font-bold text-[#FFF9Fc] drop-shadow-lg">
+              Bem-vindo à <span className="text-[#44437A]">Voogle</span>
             </h1>
-            <p className="text-gray-700 mt-2">
-              Encontre as melhores soluções de seguros, financiamentos e
-              consórcios.
+            <p className="text-[#FFF9Fc] text-lg mt-3 opacity-90 font-medium">
+              Descubra as melhores<span className="text-[#44437A] font-medium text-lg mt-3 opacity-90"> soluções</span> em seguros, financiamentos e consórcios sob medida para você.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto"
+            data-aos="fade-up"
+          >
             {/* Card 1 - Proteção para seu Veículo */}
-            <div className="bg-white rounded-lg p-5 shadow-md max-h-fit">
-              <h2 className="text-lg font-bold text-[#003366] mb-4 !text-start">
-                Proteção para seu Veículo
-              </h2>
-              <div className="flex gap-4 justify-center">
-                <img
-                  src={bannerImg01}
-                  alt="Proteção Veículo 1"
-                  className="rounded-lg object-cover w-1/2"
-                  loading="lazy"
-                />
-                <img
-                  src={bannerImg02}
-                  alt="Proteção Veículo 2"
-                  className="rounded-lg object-cover w-1/2"
-                  loading="lazy"
-                />
-              </div>
-              <a
-                href="#"
-                className="text-blue-600 font-semibold hover:underline mt-4 block text-start"
-              >
-                Conheça o seguro veicular
-              </a>
-            </div>
+            <div
+              className=""
+              data-aos="fade-right"
+              style={{ position: "relative", width: "100%", height: "35rem", overflow: "hidden", borderRadius: "10px" }}>
+              {/* Imagem de fundo */}
+              <img
+                src="https://i0.wp.com/catagua.com.br/wp-content/uploads/2021/09/adobestock-645776860.jpeg?fit=1024%2C683&ssl=1"
+                alt="Imagem do card"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
 
-            {/* Card 2 - Seguro para Família */}
-            <div className="bg-white rounded-lg p-5 shadow-md max-h-fit">
-              <h2 className="text-lg font-bold text-[#003366] mb-4 text-start">
+              {/* Camada preta semitransparente */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",// Fundo preto com opacidade
+                  zIndex: 1,
+                }}
+              ></div>
+
+              {/* Título */}
+              <h2
+                style={{
+                  position: "absolute",
+                  bottom: "50px",
+                  left: "10px",
+                  color: "white",
+                  zIndex: 2,
+                  fontSize: "36px",
+                  padding: "5px 10px",
+                  borderRadius: "5px",
+                  fontWeight: "bolder"
+                }}
+              >
                 Financeiro
               </h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-start">
-                  <p className="text-sm text-gray-600">Seguro 01</p>
-                  <img
-                    src={bannerImg06}
-                    className="rounded-lg object-cover w-full mb-2"
-                  /> 
-                </div>
-                <div className="text-start">
-                   <p className="text-sm text-gray-600">Seguro 02</p>
-                  <img
-                    src={bannerImg09}
-                    className="rounded-lg object-cover w-full mb-2"
-                  />
-                 
-                </div>
-                <div className="text-start">
-                  <p className="text-sm text-gray-600">Seguro 03</p>
-                  <img
-                    src={bannerImg08}
-                    className="rounded-lg object-cover w-full mb-2"
-                  />
-                  
-                </div>
-                <div className="text-start">
-              
-                  <p className="text-sm text-gray-600">Seguro 04</p>
-                  <img
-                    src={bannerImg07}
-                    className="rounded-lg object-cover w-full mb-2"
-                  />
-                  
-                </div>
+
+              <div className="">
+                <p className="hover:text-blue-200 hover:scale-x-105 transition-transform duration 0.3 cursor-pointer"
+                  style={{
+                    position: "absolute",
+                    bottom: "20px",
+                    left: "12px",
+                    color: "lightBlue",
+                    zIndex: 2,
+                    fontSize: "16px",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    fontWeight: "bolder"
+                  }}>
+                  Saiba Mais <span className="text-white ml-1 ">
+                    <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                  </span>
+                </p>
               </div>
-              <a
-                href="#"
-                className="text-blue-600 font-semibold hover:underline mt-4 block text-start"
+            </div>
+
+
+            {/* Card 2 - Financeiro */}
+            <div
+              className=""
+              data-aos="fade-up"
+              style={{ position: "relative", width: "100%", height: "35rem", overflow: "hidden", borderRadius: "10px" }}>
+              {/* Imagem de fundo */}
+              <img
+                src={bannerImg04}
+                alt="Imagem do card"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+
+              {/* Camada preta semitransparente */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",// Fundo preto com opacidade
+                  zIndex: 1,
+                }}
+              ></div>
+
+              {/* Título */}
+              <h2
+                style={{
+                  position: "absolute",
+                  bottom: "50px",
+                  left: "10px",
+                  color: "white",
+                  zIndex: 2,
+                  fontSize: "36px",
+                  padding: "5px 10px",
+                  borderRadius: "5px",
+                  fontWeight: "bolder"
+                }}
               >
-                Aproveite
-              </a>
+                Familiar
+              </h2>
+
+              <div >
+                <p className="hover:text-blue-200 hover:scale-x-105 transition-transform duration 0.3 cursor-pointer"
+                  style={{
+                    position: "absolute",
+                    bottom: "20px",
+                    left: "12px",
+                    color: "lightBlue",
+                    zIndex: 2,
+                    fontSize: "16px",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    fontWeight: "bolder"
+                  }}>
+                  Saiba Mais <span className="text-white">
+                    <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                  </span>
+                </p>
+              </div>
             </div>
 
             {/* Card 3 - Suas Finanças */}
-            <div className="bg-white rounded-lg p-5 shadow-md max-h-fit">
-              <h2 className="text-lg font-bold text-[#003366] mb-4 text-start">
-                Garanta um Seguro para Sua Família
-              </h2>
-              <div className="space-y-4">
-                <img
-                  src={bannerImg04}
-                  className="rounded-lg w-full object-cover"
-                  alt="Seguro Família"
-                  loading="lazy"
-                />
-              </div>
+            <div
+              className=""
+              data-aos="fade-left"
+              style={{ position: "relative", width: "100%", height: "35rem", overflow: "hidden", borderRadius: "10px" }}>
+              {/* Imagem de fundo */}
               <img
-                src={bannerImg05}
-                className="rounded-lg mt-4 w-full object-cover"
-                alt="Seguro Extra"
-                loading="lazy"
+                src={bannerImg02}
+                alt="Imagem do card"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
               />
-              <a
-                href="#"
-                className="text-blue-600 font-semibold hover:underline mt-4 block text-start"
+
+              {/* Camada preta semitransparente */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",// Fundo preto com opacidade
+                  zIndex: 1,
+                }}
+              ></div>
+
+              {/* Título */}
+              <h2
+                style={{
+                  position: "absolute",
+                  bottom: "50px",
+                  left: "10px",
+                  color: "white",
+                  zIndex: 2,
+                  fontSize: "36px",
+                  padding: "5px 10px",
+                  borderRadius: "5px",
+                  fontWeight: "bolder"
+                }}
               >
-                Visualizar
-              </a>
+                Veicular
+              </h2>
+
+              <div >
+                <p className="hover:text-blue-200 hover:scale-x-105 transition-transform duration 0.3 cursor-pointer"
+                  style={{
+                    position: "absolute",
+                    bottom: "20px",
+                    left: "12px",
+                    color: "lightBlue",
+                    zIndex: 2,
+                    fontSize: "16px",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    fontWeight: "bolder"
+                  }}>
+                  Saiba Mais <span className="text-white">
+                    <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -194,6 +319,8 @@ function Home() {
         <div
           id="Seguro1"
           className="flex flex-col md:flex-row gap-6 items-center"
+          data-aos="fade-up-right"
+
         >
           {/* Imagem */}
           <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
@@ -229,6 +356,7 @@ function Home() {
         <div
           id="Seguro2"
           className="flex flex-col md:flex-row-reverse gap-6 items-center"
+          data-aos="fade-up-left"
         >
           {/* Imagem */}
           <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
@@ -264,6 +392,8 @@ function Home() {
         <div
           id="Seguro3"
           className="flex flex-col md:flex-row gap-6 items-center"
+          data-aos="fade-up-right"
+
         >
           {/* Imagem */}
           <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
@@ -299,6 +429,7 @@ function Home() {
         <div
           id="Seguro4"
           className="flex flex-col md:flex-row-reverse gap-6 items-center"
+          data-aos="fade-up-left"
         >
           {/* Imagem */}
           <div className="md:w-[60%] w-full h-[350px] shadow-lg bg-gray-100">
@@ -332,18 +463,31 @@ function Home() {
 
       {/*Seção das Vantagens da Plataforma*/}
 
+      {/* Seção das Vantagens da Plataforma */}
       <section className="mt-[7%] pl-40 pr-40" id="SecaoVantagens">
-        <h1 className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]">
+        <h1
+          className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           Vantagens da Voogle
         </h1>
 
         <section className="flex justify-center items-center mt-16 mb-16 px-8">
-          <div className="flex flex-wrap md:flex-nowrap bg-[#FFF8F0] rounded-3xl shadow-lg w-full max-w-[1200px] overflow-hidden">
+          <div
+            className="flex flex-wrap md:flex-nowrap bg-[#E0F0FF] rounded-3xl shadow-lg w-full max-w-[1200px] overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+          >
             {/* Conteúdo de Texto */}
-            <div className="flex flex-col justify-center p-8 md:w-1/2">
-              <h2 className="text-3xl font-bold text-[#1D2745] mb-4">
+            <div
+              className="flex flex-col justify-center p-8 md:w-1/2"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
+              <h2 className="text-3xl font-bold text-[#44537A] mb-4">
                 Porque cotar com a{" "}
-                <span className="text-[#44537A]">Voogle?</span>
+                <span className="text-[#1D2745]">Voogle?</span>
               </h2>
               <p className="text-[#44537A] leading-relaxed mb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
@@ -358,35 +502,11 @@ function Home() {
             </div>
 
             {/* Imagem e Benefícios */}
-            <div className="relative flex items-center md:w-1/2 bg-[#FFF8F0]">
-              {/* Benefícios com Ícones 
-              <div className="absolute top-0 left-0 flex flex-wrap justify-start p-8 gap-6 z-10">
-                <div className="flex flex-col items-center text-center text-[#44537A] font-semibold">
-                  <span className="text-3xl mb-2">🛡️</span>
-                  <p className="text-sm">Vantagem 1</p>
-                </div>
-                <div className="flex flex-col items-center text-center text-[#44537A] font-semibold">
-                  <span className="text-3xl mb-2">🔖</span>
-                  <p className="text-sm">Vantagem 2</p>
-                </div>
-                <div className="flex flex-col items-center text-center text-[#44537A] font-semibold">
-                  <span className="text-3xl mb-2">👨‍👩‍👧‍👦</span>
-                  <p className="text-sm">Vantagem 3</p>
-                </div>
-                <div className="flex flex-col items-center text-center text-[#44537A] font-semibold">
-                  <span className="text-3xl mb-2">⏰</span>
-                  <p className="text-sm">Vantagem 4</p>
-                </div>
-                <div className="flex flex-col items-center text-center text-[#44537A] font-semibold">
-                  <span className="text-3xl mb-2">🛠️</span>
-                  <p className="text-sm">Vantagem 5</p>
-                </div>
-                <div className="flex flex-col items-center text-center text-[#44537A] font-semibold">
-                  <span className="text-3xl mb-2">📋</span>
-                  <p className="text-sm">Vantagem 6</p>
-                </div>
-              </div>
-*/}
+            <div
+              className="relative flex items-center md:w-1/2 bg-[#E0F0FF)]"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
               {/* Imagem Principal */}
               <div className="relative z-0">
                 <img
@@ -401,24 +521,35 @@ function Home() {
         </section>
       </section>
 
+
       {/*Seção dos Seguros Secundarios*/}
 
+      {/* Seção dos Seguros Secundários */}
       <section className="mt-[7%]" id="SecaoCarrossel">
-        <h1 className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]">
+        <h1
+          className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           Qual seguro você precisa?
         </h1>
 
-        <SeguroCarousel />
+        <div data-aos="zoom-in" data-aos-duration="1000">
+          <SeguroCarousel />
+        </div>
       </section>
+
 
       {/*Seção dos Depoimentos de Clientes*/}
 
       <section className="mt-[7%] mb-[7%] pl-40 pr-40" id="SecaoDepoimentos">
-        <h1 className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]">
+        <h1 className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]" data-aos="fade-up"
+          data-aos-duration="1000">
           O que nossos clientes falam sobre a Voogle
         </h1>
         <div className="flex flex-row">
-          <div className="w-[40%] justify-between flex flex-col mt-[32px] mb-[80px]">
+          <div className="w-[40%] justify-between flex flex-col mt-[32px] mb-[80px]" data-aos="fade-right"
+            data-aos-duration="1000">
             <p className="text-lg leading-relaxed text-[#44537A] font-medium">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
               corrupti quos adipisci, mollitia earum maxime quam excepturi, rem
@@ -440,7 +571,8 @@ function Home() {
             </div>
           </div>
 
-          <div className="w-[60%]">
+          <div className="w-[60%]" data-aos="fade-left"
+            data-aos-duration="1000">
             <ClientesCarousel />
           </div>
         </div>

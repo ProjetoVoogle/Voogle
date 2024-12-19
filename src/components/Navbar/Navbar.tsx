@@ -79,38 +79,37 @@ export default function NavBar() {
 
           {/* Área Invisível que mantém o hover */}
           {isDropdownVisible && (
-            <div
-              className="absolute left-0 top-full mr-[15px] w-[500px] h-[15px] bg-transparent"
-              onMouseEnter={() => setIsDropdownVisible(true)} // Garante hover contínuo
-              onMouseLeave={() => setIsDropdownVisible(false)}
-            >
-              <div className="absolute left-0 top-[10px] bg-white shadow-lg border rounded-md w-[500px]">
-                {/* Seta Indicadora */}
-                <div className="absolute -top-2 left-10 w-4 h-4 bg-white rotate-45 border-t border-l"></div>
-                {/* Tabs */}
-                <div className="p-2 border-b flex gap-2">
-                  <button
-                    onClick={() => setActiveTab("ParaVocê")}
-                    className={`p-2 rounded-md ${
-                      activeTab === "ParaVocê" ? "bg-blue-100 text-blue-600" : ""
-                    }`}
-                  >
-                    Para Você
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("ParaEmpresa")}
-                    className={`p-2 rounded-md ${
-                      activeTab === "ParaEmpresa" ? "bg-blue-100 text-blue-600" : ""
-                    }`}
-                  >
-                    Para Empresa
-                  </button>
-                </div>
-                {/* Conteúdo Dinâmico */}
-                {renderContent()}
-              </div>
-            </div>
-          )}
+  <div
+    className="absolute left-0 top-full mt-2 bg-white shadow-lg border rounded-lg w-[500px] transition-all duration-300"
+    onMouseEnter={() => setIsDropdownVisible(true)}
+    onMouseLeave={() => setIsDropdownVisible(false)}
+  >
+    {/* Seta Indicadora */}
+    <div className="absolute -top-2 left-10 w-4 h-4 bg-white rotate-45 border border-gray-200"></div>
+    {/* Tabs */}
+    <div className="p-3 border-b flex gap-4">
+      <button
+        onClick={() => setActiveTab("ParaVocê")}
+        className={`px-4 py-2 rounded-lg font-medium text-sm ${
+          activeTab === "ParaVocê" ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100 text-gray-700"
+        }`}
+      >
+        Para Você
+      </button>
+      <button
+        onClick={() => setActiveTab("ParaEmpresa")}
+        className={`px-4 py-2 rounded-lg font-medium text-sm ${
+          activeTab === "ParaEmpresa" ? "bg-blue-100 text-blue-600" : "hover:bg-gray-100 text-gray-700"
+        }`}
+      >
+        Para Empresa
+      </button>
+    </div>
+    {/* Conteúdo Dinâmico */}
+    {renderContent()}
+  </div>
+)}
+
         </div>
 
         <a
@@ -128,7 +127,7 @@ export default function NavBar() {
       </div>
 
       {/* Botão Direito */}
-      <div className="ml-auto">
+      <div className="ml-auto"> 
         <Button 
         label="Contrate-nos" 
         onBtnClick={() => envioMsg({ number, message })}

@@ -1,14 +1,16 @@
 import React, { useState, useRef } from "react";
 import { FeatureCardProps } from "../components/Card/FeatureCard";
 import Button from "../components/Button/Button";
-import styles from "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoneyBill } from "@fortawesome/free-solid-svg-icons"; // Exemplo de ícone sólido
 
 const allCards: FeatureCardProps[] = [
-  { text: "Título 1", description: "Esta é a descrição do card 1.", image: "https://i0.wp.com/mesclaseguros.com.br/wp-content/uploads/2024/05/Seguro-Transporte-Como-Escolher-A-Protecao-Ideal-Para-Empresas-De-Grande-Porte.png?fit=750%2C500&ssl=1", category: "Recomendados" },
-  { text: "Título 2", description: "Esta é a descrição do card 2.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjxJdCgpfJdLb7Hf1Gw7zFL-rGTStDzzwyoA&s", category: "Veículos" },
-  { text: "Título 3", description: "Esta é a descrição do card 3.", image: "https://www.seguroviagem.org/wp-content/uploads/2019/08/seguro-viagem-1-25.jpg", category: "Casa" },
-  { text: "Título 4", description: "Esta é a descrição do card 4.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIwt1o9eCPLbakcW07fnC4Ig7HSYwXaTP3Cg&s", category: "Financeiro" },
-  { text: "Título 5", description: "Esta é a descrição do card 5.", image: "https://vendas.ololu.com.br/blog/imgs/artigo_5f9809d225e2bconsorcio.jpeg", category: "Saúde" },
+  { text: "Seguro de Eletroeletrônicos", description: "Esta é a descrição do card 1.", image: "https://dicas.olx.com.br/wp-content/uploads/2024/05/ultimos-lancamentos-de-celular.jpg", category: "Recomendados" },
+  { text: "Seguro Empresarial", description: "Esta é a descrição do card 2.", image: "https://akadseguros.com.br/content/uploads/2023/06/seguro-empresarial-servicos-akad-1920x0-c-default.jpg", category: "Veículos" },
+  { text: "Seguro de Viagem", description: "Esta é a descrição do card 3.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBP_FvJKm7U4P8YEU4EL6t37fE6lzadCM4Q&s", category: "Casa" },
+  { text: "Seguro de Garantia", description: "Esta é a descrição do card 4.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWcLIJe9VkWzpbdzuzYritc5nIuHg-TgGK-A&s", category: "Financeiro" },
+  { text: "Seguro de obras e locações", description: "Esta é a descrição do card 5.", image: "https://blog.docket.com.br/wp-content/uploads/2021/09/AdobeStock_712794701Resultado-1089x730.webp", category: "Casa" },
+  { text: "Seguro Financeiro", description: "Esta é a descrição do card 5.", image: "https://revistaapolice.com.br/wp-content/uploads/elementor/thumbs/financas-qg11k0kq8p3btpo39fbdte8ob3mh5at8pdl6lqenpk.jpg", category: "Financeiro" },
 ];
 
 const categories = ["Recomendados", "Veículos", "Casa", "Financeiro", "Saúde"];
@@ -118,13 +120,16 @@ const SeguroCarousel: React.FC = () => {
             {filteredCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg w-[300px] h-[350px] flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] hover:shadow-2xl overflow-hidden"
+                className="bg-white shadow-lg w-[300px] h-[350px] flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] hover:shadow-2xl overflow-hidden cursor-grab"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay={`${index * 200}`}
               >
                 <div className="p-4">
                   <img
                     src={card.image}
                     alt={card.text}
-                    className="w-full h-[150px] object-contain rounded-[8px]"
+                    className="w-full h-[150px] object-contain"
                   />
                 </div>
                 <div className="px-4 flex-grow">
@@ -136,7 +141,7 @@ const SeguroCarousel: React.FC = () => {
                   </p>
                 </div>
                 <div className="bg-[#E6F4E6] text-[#44537A] font-bold text-sm rounded-md p-2 mx-4 mb-4 flex items-center gap-2">
-                  <span className="inline-block w-5 h-5 bg-[#44537A] rounded-sm"></span>
+                  <span className=""><FontAwesomeIcon icon={faMoneyBill}/></span>
                   12 meses de anuidade grátis.
                 </div>
               </div>

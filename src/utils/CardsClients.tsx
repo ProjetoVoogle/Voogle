@@ -78,7 +78,11 @@ const ClientesCarousel: React.FC = () => {
           {extendedCards.map((card, index) => (
             <div
               key={index}
-              className="bg-[#FFF8F0] rounded-xl shadow-lg p-6 w-[calc(33.33%-1.5rem)] flex-shrink-0 text-center border border-gray-200 flex flex-col justify-between"
+              className="bg-[#E0F0FF] rounded-xl shadow-lg p-6 w-[calc(33.33%-1.5rem)] flex-shrink-0 text-center border border-gray-200 flex flex-col justify-between"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+              data-aos-delay={`${index * 200}`}
+
             >
               <div className="">
                 {/* Ícone de citação */}
@@ -96,7 +100,7 @@ const ClientesCarousel: React.FC = () => {
                 {/* Autor */}
                 <div className="flex flex-row mb-auto gap-3">
                   <img src={card.image} alt="Usuário" className="w-12 h-12" />
-                  <h4 className="font-bold text-gray-800 text-sm text-justify">
+                  <h4 className="font-bold text-gray-800 text-sm text-start ">
                     {card.author.split("\n").map((line, idx) => (
                       <React.Fragment key={idx}>
                         {line}
