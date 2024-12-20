@@ -312,7 +312,7 @@ function Home() {
       {/*Seção dos Seguros Primarios*/}
 
       <section
-        className="flex flex-col gap-16 mt-[6%] pl-8 pr-8 lg:pl-40 lg:pr-40 md:pl-20 md:pr-20 sm:pl-8 sm:pr-8 sm:mt-[10%] justify-center"
+        className="flex flex-col gap-16 mt-[6%] pl-8 pr-8 lg:pl-40 lg:pr-40 md:pl-15 md:pr-15 sm:pl-8 sm:pr-8 sm:mt-[10%] justify-center"
         id="CardContainer"
       >
         {/* Seguro 1 */}
@@ -336,12 +336,12 @@ function Home() {
             <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Seguro de Automóveis
             </h1>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-justify text-[#44537A] leading-relaxed font-medium">
               Proteja seu veículo contra roubo, acidentes e danos com as
               melhores condições do mercado. Cobertura completa e assistência
               24h.
             </p>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-justify text-[#44537A] leading-relaxed font-medium">
               Escolha o seguro ideal para seu perfil e viaje com tranquilidade.
             </p>
             <Button
@@ -372,11 +372,18 @@ function Home() {
             <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Seguro de Saúde
             </h1>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
-              Garanta sua saúde e de sua família com cobertura médica completa.
-              Planos adaptados às suas necessidades.
+            <p
+              style={{ textAlignLast: "right" }}
+              className="text-base sm:text-lg text-justify text-[#44537A] leading-relaxed font-medium"
+            >
+
+              Garanta a sua saúde e a de sua família com uma cobertura médica completa e de qualidade.
+              Oferecemos planos personalizados, totalmente adaptados às suas necessidades.
             </p>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p
+              style={{ textAlignLast: "right" }}
+              className="text-base sm:text-lg text-justify text-[#44537A] leading-relaxed font-medium"
+            >
               Tenha acesso a consultas, exames e internações com total
               comodidade e rapidez.
             </p>
@@ -408,11 +415,11 @@ function Home() {
             <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Seguro de Vida
             </h1>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-justify text-[#44537A] leading-relaxed font-medium">
               Proporcione segurança financeira à sua família em momentos
               inesperados. Cobertura ideal para imprevistos.
             </p>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-justify text-[#44537A] leading-relaxed font-medium">
               Planos flexíveis para atender suas prioridades e objetivos de
               vida.
             </p>
@@ -444,11 +451,11 @@ function Home() {
             <h1 className="text-2xl font-bold text-[#1D2745] sm:text-3xl md:text-4xl">
               Financiamentos e Consórcios
             </h1>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p style={{ textAlignLast: "right" }} className="text-base sm:text-lg text-justify md:text-end text-[#44537A] leading-relaxed font-medium">
               Realize seus sonhos com as melhores opções de financiamento e
               consórcio. Flexibilidade e facilidade para seu orçamento.
             </p>
-            <p className="text-base sm:text-lg text-[#44537A] leading-relaxed font-medium">
+            <p style={{ textAlignLast: "right" }} className="text-base sm:text-lg text-justify md:text-end text-[#44537A] leading-relaxed font-medium">
               Adquira seu imóvel ou veículo com parcelas que cabem no bolso.
             </p>
             <Button
@@ -482,11 +489,11 @@ function Home() {
                 Porque cotar com a{" "}
                 <span className="text-[#44537A]">Voogle?</span>
               </h2>
-              <p className="text-sm sm:text-base text-[#44537A] leading-relaxed mb-4">
+              <p className="text-sm sm:text-base text-justify lg:text-end md:text-end text-[#44537A] leading-relaxed mb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius explicabo
                 suscipit repellat ratione blanditiis officia earum et, odit assumenda
               </p>
-              <p className="text-sm sm:text-base text-[#44537A] leading-relaxed">
+              <p className="text-sm sm:text-base text-justify lg:text-end md:text-end text-[#44537A] leading-relaxed">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
                 perspiciatis maiores pariatur ea eaque ullam, magni at ipsam accusantium
                 ut. Dolorem, pariatur!

@@ -1,85 +1,91 @@
 import React from "react";
 import { useState } from "react";
 import useToggle from "../../hooks/useToggle";
-import useDropdown from "../../hooks/useDropdown";
 
-export default function MenuLateral() {
+interface MenuLateralProps {
+  onClose: () => void;
+}
+
+const MenuLateral: React.FC<MenuLateralProps> = ({ onClose }) => {
   const { isOpen, toggle } = useToggle();
-  const { isDropdownOpen, openDropdown, closeDropdown } = useDropdown();
+  const [activeTab, setActiveTab] = useState("ParaVocê");
+
+  const renderContent = () => {
+    if (activeTab === "ParaVocê") {
+      return (
+        <div className="grid grid-cols-2 gap-4 p-4">
+          <a href="#" className="hover:text-blue-500 block">Seguro Auto</a>
+          <a href="#" className="hover:text-blue-500 block">Seguro Residencial</a>
+          <a href="#" className="hover:text-blue-500 block">Seguro Viagem</a>
+          <a href="#" className="hover:text-blue-500 block">Seguro Celular</a>
+          <a href="#" className="hover:text-blue-500 block">Seguro Vida</a>
+        </div>
+      );
+    }
+    return (
+      <div className="grid grid-cols-2 gap-4 p-4">
+        <a href="#" className="hover:text-blue-500 block">Proteção Combinada</a>
+        <a href="#" className="hover:text-blue-500 block">Responsabilidade Civil</a>
+        <a href="#" className="hover:text-blue-500 block">Seguro Fiança</a>
+        <a href="#" className="hover:text-blue-500 block">Máquinas e Equipamentos</a>
+        <a href="#" className="hover:text-blue-500 block">Eventos</a>
+        <a href="#" className="hover:text-blue-500 block">Caminhão</a>
+      </div>
+    );
+  };
 
   return (
-    <div id="main">
-      {/* Botão para abrir/fechar o menu */}
-      <div
-        className="flex flex-col gap-1 cursor-pointer relative z-20"
-        id="menuButton"
+    <div>
+      {/* Botão para abrir o menu */}
+      <button
+        className="fixed top-4 right-4 z-50 bg-blue-500 text-white p-2 rounded shadow"
         onClick={toggle}
       >
-        <span
-          className={`w-[25px] h-[3px] bg-[#44537A] rounded transition-transform duration-300 ease-in-out ${
-            isOpen ? "rotate-45 translate-y-[8px]" : ""
-          }`}
-        ></span>
-        <span
-          className={`w-[25px] h-[3px] bg-[#44537A] rounded transition-opacity duration-300 ease-in-out ${
-            isOpen ? "opacity-0" : ""
-          }`}
-        ></span>
-        <span
-          className={`w-[25px] h-[3px] bg-[#44537A] rounded transition-transform duration-300 ease-in-out ${
-            isOpen ? "-rotate-45 -translate-y-[8px]" : ""
-          }`}
-        ></span>
-      </div>
+        Menu
+      </button>
 
-      {/* Sobreposição de fundo */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-10"
-          onClick={toggle}
-        ></div>
-      )}
-
-      {/* Menu lateral */}
+      {/* Menu Lateral */}
       <div
-        className={`fixed top-0 left-0 w-[300px] h-full bg-[#0a192f] shadow-lg transform transition-transform duration-500 ease-in-out z-20 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 transition-transform duration-500 ${isOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        onClick={toggle}
       >
-        <ul className="flex flex-col text-white p-6">
-          <li className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-200">
-            <a href="#">Home</a>
-          </li>
-          <li className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-200">
-            <a href="#">Sobre</a>
-          </li>
-          <li
-            onMouseEnter={openDropdown}
-            onMouseLeave={closeDropdown}
-            className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-200 relative"
+        <div
+          className="bg-white w-full h-[75%] md:w-[400px] p-6 shadow-lg relative overflow-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className="absolute top-2 right-2 text-black"
+            onClick={onClose}
           >
-            <a href="#">Serviços</a>
-
-            {/* Dropdown */}
-            {isDropdownOpen && (
-              <ul className="absolute left-full top-0 bg-[#112240] text-[#44537A] w-[200px] mt-0 shadow-lg rounded-md overflow-hidden">
-                <li className="hover:bg-[#44537A] hover:text-white transition duration-200 px-4 py-2">
-                  <a href="#">Consultoria</a>
-                </li>
-                <li className="hover:bg-[#44537A] hover:text-white transition duration-200 px-4 py-2">
-                  <a href="#">Desenvolvimento</a>
-                </li>
-                <li className="hover:bg-[#44537A] hover:text-white transition duration-200 px-4 py-2">
-                  <a href="#">Suporte</a>
-                </li>
-              </ul>
-            )}
-          </li>
-          <li className="hover:bg-[#44537A] hover:text-white p-4 cursor-pointer transition duration-200">
-            <a href="#">Contato</a>
-          </li>
-        </ul>
+            ✕
+          </button>
+          <h2 className="text-xl font-bold text-center mb-4">Menu Lateral</h2>
+          <div>
+            {/* Tabs */}
+            <div className="flex justify-around mb-4">
+              <button
+                onClick={() => setActiveTab("ParaVocê")}
+                className={`p-2 rounded ${activeTab === "ParaVocê" ? "bg-blue-500 text-white" : "bg-gray-200"
+                  }`}
+              >
+                Para Você
+              </button>
+              <button
+                onClick={() => setActiveTab("ParaEmpresa")}
+                className={`p-2 rounded ${activeTab === "ParaEmpresa" ? "bg-blue-500 text-white" : "bg-gray-200"
+                  }`}
+              >
+                Para Empresa
+              </button>
+            </div>
+            {/* Conteúdo Dinâmico */}
+            {renderContent()}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
+export default MenuLateral
