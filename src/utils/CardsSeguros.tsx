@@ -18,7 +18,7 @@ const categories = ["Recomendados", "Veículos", "Casa", "Financeiro", "Saúde"]
 const SeguroCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string>("Recomendados");
-  const visibleCards = 3;
+  const visibleCards = allCards.length > 3 ? 3 : allCards.length;
   const containerRef = useRef<HTMLDivElement>(null);
   const startX = useRef(0);
   const offsetX = useRef(0);
@@ -73,7 +73,7 @@ const SeguroCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full mt-8">
+    <div className="relative w-[20%]  sm:w-[32%] md:w-[40%] lg:w-[50%] mx-auto mt-8">
       {/* Filtros */}
       <div className="flex justify-center gap-4 mb-6">
         {categories.map((category) => (
@@ -95,7 +95,7 @@ const SeguroCarousel: React.FC = () => {
       </div>
 
       {/* Carrossel */}
-      <div className="flex justify-center items-center relative">
+      <div className="flex justify-center items-center relative pl-10 pr-10">
         <button
           onClick={prevCards}
           className="absolute left-4 top-1/2 -translate-y-1/2 text-3xl font-bold text-gray-600 hover:text-gray-800 z-10"
@@ -114,7 +114,7 @@ const SeguroCarousel: React.FC = () => {
             ref={containerRef}
             className="flex gap-6 transition-transform duration-500 h-auto"
             style={{
-              transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
+              transform: `translateX(-${currentIndex * (85 / visibleCards)}%)`,
             }}
           >
             {filteredCards.map((card, index) => (

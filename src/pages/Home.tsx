@@ -523,7 +523,7 @@ function Home() {
       {/*Seção dos Seguros Secundarios*/}
 
       {/* Seção dos Seguros Secundários */}
-      <section className="mt-[7%] " id="SecaoCarrossel">
+      <section className="mt-[7%] relative items-center" id="SecaoCarrossel">
         <h1
           className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
           data-aos="fade-up"
