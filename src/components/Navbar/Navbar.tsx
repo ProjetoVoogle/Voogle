@@ -60,7 +60,7 @@ export default function NavBar() {
       <div
         className="md:hidden flex flex-col gap-1 cursor-pointer items-center justify-center"
         id="menuButton"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        onClick={() => setIsMobileMenuOpen(true)}
       >
         <span
           className={`w-[25px] h-[3px] bg-[#44537A] transition duration-300 ease-in-out shadow ${isMobileMenuOpen ? "rotate-45 absolute" : ""
@@ -76,7 +76,7 @@ export default function NavBar() {
         ></span>
       </div>
 
-      {/*{isMobileMenuOpen && <MenuLateral onClose={() => setIsMobileMenuOpen(false)} />}*/}
+      {isMobileMenuOpen && <MenuLateral onClose={() => setIsMobileMenuOpen(false)} />}
 
 
 

@@ -73,7 +73,7 @@ const SeguroCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-[20%]  sm:w-[32%] md:w-[40%] lg:w-[50%] mx-auto mt-8">
+    <div className="relative w-full max-w-[90%] mx-auto mt-8">
       {/* Filtros */}
       <div className="flex justify-center gap-4 mb-6">
         {categories.map((category) => (
@@ -98,7 +98,7 @@ const SeguroCarousel: React.FC = () => {
       <div className="flex justify-center items-center relative pl-10 pr-10">
         <button
           onClick={prevCards}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-3xl font-bold text-gray-600 hover:text-gray-800 z-10"
+          className="absolute left-4 top-1/2 translate-y-1/2 text-3xl font-bold text-gray-600 hover:text-gray-800 z-10"
         >
           &lt;
         </button>
@@ -120,7 +120,7 @@ const SeguroCarousel: React.FC = () => {
             {filteredCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg w-[300px] h-[350px] flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] hover:shadow-2xl overflow-hidden cursor-grab"
+                className="bg-white shadow-lg w-[300px] max-w-full flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] hover:shadow-2xl overflow-hidden cursor-grab"
                 data-aos="fade-up"
                 data-aos-duration="1000"
                 data-aos-delay={`${index * 250}`}

@@ -467,18 +467,16 @@ function Home() {
 
       </section>
 
-      {/*Seção das Vantagens da Plataforma*/}
-
       {/* Seção das Vantagens da Plataforma */}
-      <section className="mt-8 px-4 sm:px-8 md:px-16 lg:px-40" id="SecaoVantagens">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]" data-aos="fade-up"
+      <section className="mt-[10%] px-4 sm:px-8 md:px-16 lg:px-40" id="SecaoVantagens">
+        <h1 className="text-[24px] lg:text-4x1 sm:text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]" data-aos="fade-up"
           data-aos-duration="1000"
         >
           Vantagens da Voogle
         </h1>
 
         <section className="flex flex-col items-center mt-8 md:mt-16 mb-8 md:mb-16">
-          <div className="flex flex-wrap md:flex-nowrap bg-[#FFF8F0] rounded-3xl shadow-lg w-full max-w-[1200px] overflow-hidden justify-center" data-aos="zoom-in"
+          <div className="flex flex-wrap md:flex-nowrap bg-[#E0F0FF] rounded-3xl shadow-lg w-full max-w-[1200px] overflow-hidden justify-center" data-aos="zoom-in"
             data-aos-duration="1200"
           >
             {/* Conteúdo de Texto */}
@@ -489,11 +487,11 @@ function Home() {
                 Porque cotar com a{" "}
                 <span className="text-[#44537A]">Voogle?</span>
               </h2>
-              <p className="text-sm sm:text-base text-justify lg:text-end md:text-end text-[#44537A] leading-relaxed mb-4">
+              <p className="text-sm sm:text-base text-justify text-[#44537A] leading-relaxed mb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius explicabo
                 suscipit repellat ratione blanditiis officia earum et, odit assumenda
               </p>
-              <p className="text-sm sm:text-base text-justify lg:text-end md:text-end text-[#44537A] leading-relaxed">
+              <p className="text-sm sm:text-base text-justify text-[#44537A] leading-relaxed">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
                 perspiciatis maiores pariatur ea eaque ullam, magni at ipsam accusantium
                 ut. Dolorem, pariatur!
@@ -501,7 +499,7 @@ function Home() {
             </div>
 
             {/* Imagem e Benefícios */}
-            <div className="relative flex items-center md:w-1/2 bg-[#FFF8F0] " data-aos="fade-left"
+            <div className="relative flex items-center md:w-1/2 bg-[#E0F0FF] " data-aos="fade-left"
               data-aos-duration="1000"
             >
               {/* Imagem Principal */}
@@ -523,9 +521,9 @@ function Home() {
       {/*Seção dos Seguros Secundarios*/}
 
       {/* Seção dos Seguros Secundários */}
-      <section className="mt-[7%] relative items-center" id="SecaoCarrossel">
+      <section className="mt-[7%] px-4 sm:px-8 md:px-16 lg:px-40 relative items-center" id="SecaoCarrossel">
         <h1
-          className="text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
+          className="text-2xl font-bold text-center mb-8 mt-8 text-[#1D2745] lg:text-4x1 sm:text-3xl md:text-4xl"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
