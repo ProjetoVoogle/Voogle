@@ -84,7 +84,7 @@ const ClientesCarousel: React.FC = () => {
       {/* Carrossel */}
       <div className="overflow-hidden w-[90%]">
         <div
-          className="flex gap-6 transition-transform duration-500 ease-in-out"
+          className="flex gap-6 py-5 transition-transform duration-500 ease-in-out"
           style={{
             transform: `translateX(-${
               (currentIndex % cards.length) * (100 / visibleCards)
