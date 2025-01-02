@@ -1,17 +1,16 @@
 import React, { useState, useRef } from "react";
 import { FeatureCardProps } from "../components/Card/FeatureCard";
-import Button from "../components/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBill } from "@fortawesome/free-solid-svg-icons"; // Exemplo de ícone sólido
 import { Link } from "react-router-dom";
 
 export const allCards: FeatureCardProps[] = [
-  { text: "Seguro de Eletroeletrônicos", description: "Esta é a descrição do card 1.", image: "https://dicas.olx.com.br/wp-content/uploads/2024/05/ultimos-lancamentos-de-celular.jpg", category: "Recomendados", video:"" },
-  { text: "Seguro Empresarial", description: "Esta é a descrição do card 2.", image: "https://akadseguros.com.br/content/uploads/2023/06/seguro-empresarial-servicos-akad-1920x0-c-default.jpg", category: "Veículos", video:"" },
-  { text: "Seguro de Viagem", description: "Esta é a descrição do card 3.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBP_FvJKm7U4P8YEU4EL6t37fE6lzadCM4Q&s", category: "Casa", video:"" },
-  { text: "Seguro de Garantia", description: "Esta é a descrição do card 4.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWcLIJe9VkWzpbdzuzYritc5nIuHg-TgGK-A&s", category: "Financeiro", video:"" },
-  { text: "Seguro de obras e locações", description: "Esta é a descrição do card 5.", image: "https://blog.docket.com.br/wp-content/uploads/2021/09/AdobeStock_712794701Resultado-1089x730.webp", category: "Casa", video:"" },
-  { text: "Seguro Financeiro", description: "Esta é a descrição do card 5.", image: "https://revistaapolice.com.br/wp-content/uploads/elementor/thumbs/financas-qg11k0kq8p3btpo39fbdte8ob3mh5at8pdl6lqenpk.jpg", category: "Financeiro", video:"" },
+  { id: "1", text: "Seguro de Eletroeletrônicos", description: "Esta é a descrição do card 1.", image: "https://dicas.olx.com.br/wp-content/uploads/2024/05/ultimos-lancamentos-de-celular.jpg", category: "Recomendados", video:"" },
+  { id: "2", text: "Seguro Empresarial", description: "Esta é a descrição do card 2.", image: "https://akadseguros.com.br/content/uploads/2023/06/seguro-empresarial-servicos-akad-1920x0-c-default.jpg", category: "Veículos", video:"" },
+  { id: "3", text: "Seguro de Viagem", description: "Esta é a descrição do card 3.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBP_FvJKm7U4P8YEU4EL6t37fE6lzadCM4Q&s", category: "Casa", video:"" },
+  { id: "4", text: "Seguro de Garantia", description: "Esta é a descrição do card 4.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWcLIJe9VkWzpbdzuzYritc5nIuHg-TgGK-A&s", category: "Financeiro", video:"" },
+  { id: "5", text: "Seguro de obras e locações", description: "Esta é a descrição do card 5.", image: "https://blog.docket.com.br/wp-content/uploads/2021/09/AdobeStock_712794701Resultado-1089x730.webp", category: "Casa", video:"" },
+  {id: "6", text: "Seguro Financeiro", description: "Esta é a descrição do card 5.", image: "https://revistaapolice.com.br/wp-content/uploads/elementor/thumbs/financas-qg11k0kq8p3btpo39fbdte8ob3mh5at8pdl6lqenpk.jpg", category: "Financeiro", video:"" },
 ];
 
 const categories = ["Recomendados", "Veículos", "Casa", "Financeiro", "Saúde"];

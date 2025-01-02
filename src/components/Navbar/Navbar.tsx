@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../Button/Button.tsx";
 import useScrolled from "../../hooks/useScrolled.ts";
 import { envioMsg } from "../../utils/envioMsg.ts";
@@ -18,17 +18,17 @@ export default function NavBar() {
       return (
         <div className="grid grid-cols-2 gap-4 p-4">
           <div>
-            <a href="#" className="hover:text-blue-500 block">Seguro Auto</a>
-            <a href="#" className="hover:text-blue-500 block">Seguro Residencial</a>
-            <a href="#" className="hover:text-blue-500 block">Seguro Viagem</a>
-            <a href="#" className="hover:text-blue-500 block">Seguro Celular</a>
-            <a href="#" className="hover:text-blue-500 block">Seguro Vida</a>
+            <a href={`/paginaSeguro/1`} className="hover:text-blue-500 block">Seguro Auto</a>
+            <a href={`/paginaSeguro/2`} className="hover:text-blue-500 block">Seguro Residencial</a>
+            <a href={`/paginaSeguro/3`} className="hover:text-blue-500 block">Seguro Viagem</a>
+            <a href={`/paginaSeguro/4`} className="hover:text-blue-500 block">Seguro Celular</a>
+            <a href={`/paginaSeguro/5`} className="hover:text-blue-500 block">Seguro Vida</a>
           </div>
           <div>
-            <a href="#" className="hover:text-blue-500 block">Seguro Bike</a>
-            <a href="#" className="hover:text-blue-500 block">Equipamentos Portáteis</a>
-            <a href="#" className="hover:text-blue-500 block">Seguro Imobiliária</a>
-            <a href="#" className="hover:text-blue-500 block">Seguro Carta Verde</a>
+            <a href={`/paginaSeguro/6`} className="hover:text-blue-500 block">Seguro Bike</a>
+            <a href={`/paginaSeguro/EquipamentosPortáteis`} className="hover:text-blue-500 block">Equipamentos Portáteis</a>
+            <a href={`/paginaSeguro/SeguroImobiliária`} className="hover:text-blue-500 block">Seguro Imobiliária</a>
+            <a href={`/paginaSeguro/SeguroCartaVerde`} className="hover:text-blue-500 block">Seguro Carta Verde</a>
           </div>
         </div>
       );
@@ -36,14 +36,14 @@ export default function NavBar() {
     return (
       <div className="grid grid-cols-2 gap-4 p-4">
         <div>
-          <a href="#" className="hover:text-blue-500 block">Proteção Combinada</a>
-          <a href="#" className="hover:text-blue-500 block">Responsabilidade Civil</a>
-          <a href="#" className="hover:text-blue-500 block">Seguro Fiança</a>
+          <a href={`/paginaSeguro/ProteçãoCombinada`} className="hover:text-blue-500 block">Proteção Combinada</a>
+          <a href={`/paginaSeguro/ResponsabilidadeCivil`} className="hover:text-blue-500 block">Responsabilidade Civil</a>
+          <a href={`/paginaSeguro/SeguroFiança`} className="hover:text-blue-500 block">Seguro Fiança</a>
         </div>
         <div>
-          <a href="#" className="hover:text-blue-500 block">Máquinas e Equipamentos</a>
-          <a href="#" className="hover:text-blue-500 block">Eventos</a>
-          <a href="#" className="hover:text-blue-500 block">Caminhão</a>
+          <a href={`/paginaSeguro/MáquinasEEquipamentos`} className="hover:text-blue-500 block">Máquinas e Equipamentos</a>
+          <a href={`/paginaSeguro/Eventos`} className="hover:text-blue-500 block">Eventos</a>
+          <a href={`/paginaSeguro/Caminhão`} className="hover:text-blue-500 block">Caminhão</a>
         </div>
       </div>
     );
@@ -76,7 +76,7 @@ export default function NavBar() {
       ) : (
         /* Menu Principal */
         <div
-          className={`flex flex-col md:flex-row gap-16 items-center w-full hidden md:flex`}
+          className={`flex-col md:flex-row gap-16 items-center w-full hidden md:flex`}
         >
           <a
             href="/"

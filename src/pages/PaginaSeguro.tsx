@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { allCards } from '../../utils/CardsSeguros'; // Importar a lista de seguros
-import { FeatureCardProps } from '../Card/FeatureCard';
-import Button from '../Button/Button';
+import { allCards } from '../utils/CardsSeguros'; // Importar a lista de seguros
+import { FeatureCardProps } from '../components/Card/FeatureCard';
+import Button from '../components/Button/Button';
 
 const SeguroPage: React.FC = () => {
-    const { id } = useParams(); // Pega o parâmetro de URL (id do seguro)
+    const { id } = useParams()
+    console.log(id)
     const [card, setCard] = useState<FeatureCardProps | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const selectedCard = allCards.find((card: { text: string; }) => card.text.toLowerCase() === id?.toLowerCase());
+        const selectedCard = allCards.find((card: { id: string; }) => card.id === id);
+        console.log(selectedCard)
         if (selectedCard) {
             setCard(selectedCard);
         } else {
-            navigate('/'); // Redireciona para a página inicial se o seguro não for encontrado
+            navigate('/'); 
         }
     }, [id, navigate]);
 

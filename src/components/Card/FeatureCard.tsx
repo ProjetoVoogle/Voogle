@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button/Button';
 
 export interface FeatureCardProps {
+  id: string
   text: string;
   description: string;
   image?: string;
@@ -9,6 +10,8 @@ export interface FeatureCardProps {
   onButtonClick?: () => void;
   className?: string;
   category?: string
+  video?: string
+  gif?:string
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({

@@ -10,15 +10,8 @@ import seguroSaudeImg from "../imgs/seguroSaude.png";
 import seguroVeiculoImg from "../imgs/seguroVeiculo.jpeg";
 import seguroVidaImg from "../imgs/seguroVida.png";
 import financiamentoEConsorcioImg from "../imgs/financiamentoEConsorcio.jpeg";
-import bannerImg01 from "../imgs/bannerImg1.jpg";
 import bannerImg02 from "../imgs/bannerImg2.jpg";
-import bannerImg04 from "../imgs/bannerImg4.jpg";
-import bannerImg03 from "../imgs/bannerImg3.jpg"
-import bannerImg05 from "../imgs/bannerImg5.jpg";
-import bannerImg06 from "../imgs/bannerImg6.jpg";
-import bannerImg07 from "../imgs/bannerImg7.jpg";
-import bannerImg08 from "../imgs/bannerImg8.jpg";
-import bannerImg09 from "../imgs/bannerImg9.jpg"
+import bannerImg04 from "../imgs/bannerImg4.jpg"
 import Logo from "../imgs/Logo.png";
 import useScrolled from "../hooks/useScrolled.ts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
