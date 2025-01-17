@@ -514,7 +514,7 @@ function Home() {
       {/*Seção dos Seguros Secundarios*/}
 
       {/* Seção dos Seguros Secundários */}
-      <section className="mt-[7%] px-4 sm:px-8 md:px-16 lg:px-40 relative items-center" id="SecaoCarrossel">
+      <section className="mt-[7%] w-full px-4 relative items-center" id="SecaoCarrossel">
         <h1
           className="text-2xl font-bold text-center mb-8 mt-8 text-[#1D2745] lg:text-4x1 sm:text-3xl md:text-4xl"
           data-aos="fade-up"
@@ -523,7 +523,7 @@ function Home() {
           Qual seguro você precisa?
         </h1>
 
-        <div data-aos="zoom-in" data-aos-duration="1000">
+        <div data-aos="zoom-in" data-aos-duration="1000" className="flex justify-center">
           <SeguroCarousel />
         </div>
       </section>

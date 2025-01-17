@@ -72,7 +72,7 @@ const ClientesCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full flex justify-center items-center mt-8 mb-20">
+    <div className="relative w-full flex justify-center items-center mt-8 mb-20 md:ml-10">
       {/* Botão Anterior */}
       <button
         onClick={prevCard}
@@ -82,7 +82,7 @@ const ClientesCarousel: React.FC = () => {
       </button>
 
       {/* Carrossel */}
-      <div className="overflow-hidden w-[90%]">
+      <div className="overflow-hidden w-[90%] "> 
         <div
           className="flex gap-6 py-5 transition-transform duration-500 ease-in-out"
           style={{
@@ -96,7 +96,7 @@ const ClientesCarousel: React.FC = () => {
               key={index}
               className={`bg-[#E0F0FF] rounded-xl shadow-lg p-6 flex-shrink-0 text-center border border-gray-200 flex flex-col justify-between w-[50%]`}
               style={{
-                width: `${100 / visibleCards}%`, // Ajusta dinamicamente o tamanho do card
+                width: `${130 / visibleCards}%`, // Ajusta dinamicamente o tamanho do card
               }}
               data-aos="zoom-in"
               data-aos-duration="1000"
@@ -116,13 +116,13 @@ const ClientesCarousel: React.FC = () => {
                 <div className="w-full border-t border-gray-300 my-4"></div>
 
                 {/* Autor */}
-                <div className="flex flex-row mb-auto gap-3 items-center">
+                <div className="flex flex-row mb-auto gap-3 items-center md:flex-col md:gap-0 md:items-center">
                   <img
                     src={card.image}
                     alt="Usuário"
                     className="w-12 h-12 rounded-full"
                   />
-                  <h4 className="font-bold text-gray-800 text-sm text-start ">
+                  <h4 className="font-bold text-gray-800 text-sm text-start md:text-center">
                     {card.author.split("\n").map((line, idx) => (
                       <React.Fragment key={idx}>
                         {line}

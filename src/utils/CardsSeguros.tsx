@@ -82,9 +82,9 @@ const SeguroCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full max-w-[90%] mx-auto mt-8">
+    <div className="w-full max-w-screen-sm md:max-w-screen-md lg:max-w-none mt-8">
       {/* Filtros */}
-      <div className="flex justify-center gap-4 mb-6">
+      <div className="flex justify-center gap-4 mb-6 flex-wrap overflow-x-auto">
         {categories.map((category) => (
           <button
             key={category}
@@ -103,7 +103,7 @@ const SeguroCarousel: React.FC = () => {
       </div>
 
       {/* Carrossel */}
-      <div className="flex justify-center items-center relative pl-10 pr-10">
+      <div className="flex justify-center items-center relative pl-10 pr-10 sm:pl-10 sm:pr-10 md:pl-10 md:pr-10 lg:pl-16 lg:pr-16 flex-1">
         <button
           onClick={prevCards}
           className="absolute left-4 top-1/2 translate-y-1/2 text-3xl font-bold text-gray-600 hover:text-gray-800 z-10"
@@ -112,7 +112,7 @@ const SeguroCarousel: React.FC = () => {
         </button>
 
         <div
-          className="flex overflow-hidden w-[90%]"
+          className="flex overflow-hidden w-full relative"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
