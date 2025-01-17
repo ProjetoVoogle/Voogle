@@ -3,6 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { allCards } from '../utils/CardsSeguros'; // Importar a lista de seguros
 import { FeatureCardProps } from '../components/Card/FeatureCard';
 import Button from '../components/Button/Button';
+import CarouselSeguro from '../components/CarouselSeguro/Carousel';
+import { carouselSecao1Data } from "../utils/CarouselData/CarouselSecao1Data"
+import { carouselSecao2Data } from '../utils/CarouselData/CarouselSecao2Data';
+
 
 const SeguroPage: React.FC = () => {
     const { id } = useParams()
@@ -16,18 +20,21 @@ const SeguroPage: React.FC = () => {
         if (selectedCard) {
             setCard(selectedCard);
         } else {
-            navigate('/'); 
+            navigate('/');
         }
     }, [id, navigate]);
 
     if (!card) return <div>Carregando...</div>;
 
+    const carouselSecao1Items = carouselSecao1Data[id] || [];
+    const carouselSecao2Items = carouselSecao2Data[id] || [];
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* Seção do Vídeo */}
             <div className="relative h-[60vh]">
-                <div className='p-8 absolute z-10'>
-                    <Button label="Voltar" onBtnClick={() => navigate("/")} className='' />
+                <div className='p-8 absolute z-10 right-0 pr-10 '>
+                    <Button label="Voltar" onBtnClick={() => navigate("/")} className='bg-white bg-opacity-[0.8]' />
                 </div>
                 {/* Vídeo de fundo */}
                 <video
@@ -43,14 +50,49 @@ const SeguroPage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 {/* Conteúdo no vídeo */}
-                <div className="absolute bottom-0 z-10 flex flex-col items-start p-8 text-white">
+                <div className="absolute bottom-0 z-10 flex flex-col items-start p-16 text-white">
                     <h1 className="text-4xl font-bold mb-4">{card.text}</h1>
                     <p className="text-lg mb-6">{card.description}</p>
                 </div>
             </div>
 
+
+            <section className='relative p-16 flex-grow-1'>
+                <div>
+                    <h2 className='text-[2rem] font-[400]'>Por que contratar o {card.text} da Voogle</h2>
+                </div>
+                <CarouselSeguro items={carouselSecao1Items} customStyles={{}} />
+            </section >
+            <section className='p-16'>
+                <div>
+                    <h2 className='text-[2rem]'>O que nosso {card.text} cobre</h2>
+
+                </div>
+                <CarouselSeguro items={carouselSecao2Items} customStyles={{}} />
+            </section >
+            <section className='p-16'>
+                <div>
+                    <h2 className='text-[2rem]'>Precisa acionar o seguro?</h2>
+                </div>
+            </section >
+            <section className='p-16'>
+                <div>
+                    <h2 className='text-[2rem]'>Perguntas Frequentes sobre o {card.text}</h2>
+                </div>
+            </section >
+            <section className='p-16'>
+                <div>
+                    <h2 className='text-[2rem]'>Você também pode gostar</h2>
+                </div>
+            </section>
+            <section className='p-16'>
+                <div>
+                    <h2 className='text-[2rem]'>Destaques</h2>
+                </div>
+            </section>
+
             {/* Informações abaixo do vídeo */}
-            <div className="relative z-20 flex-grow p-8 bg-gray-100 text-gray-900">
+            <div className="relative z-20 flex-grow p-16 bg-gray-100 text-gray-900">
 
                 <div className="mt-6">
                     <h2 className="text-2xl font-semibold mb-4">Detalhes</h2>

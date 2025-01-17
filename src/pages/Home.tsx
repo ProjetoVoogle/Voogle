@@ -545,7 +545,7 @@ function Home() {
         <div className="flex flex-col lg:flex-row">
           {/* Coluna de texto */}
           <div
-            className="w-full lg:w-[40%] flex flex-col gap-6 mt-[32px] mb-[40px]"
+            className="w-full lg:w-[40%] flex flex-col gap-6 mt-[32px] lg:mb-[100px]"
             data-aos="fade-right"
             data-aos-duration="1000"
           >
