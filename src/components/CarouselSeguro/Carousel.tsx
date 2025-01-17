@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CarouselSeguro = ({ items, customStyles }) => {
   const settings = {
@@ -39,8 +40,8 @@ const CarouselSeguro = ({ items, customStyles }) => {
           <div key={index} className={`p-4 ${customStyles?.itemContainer}`}>
             <div className={`flex flex-col gap-4 p-6 rounded-lg text-start ${customStyles?.item}`}>
               {item.icon ? (
-                <div className="mx-auto mb-4 h-32 flex justify-center items-center text-5xl">
-                  {item.icon}
+                <div className="h-32 flex justify-start items-center text-5xl ">
+                  <FontAwesomeIcon icon={item.icon} />
                 </div>
               ) : (
                 <img
@@ -49,7 +50,7 @@ const CarouselSeguro = ({ items, customStyles }) => {
                   className="w-full h-[13rem] object-cover rounded-[8px]"
                 />
               )}
-              <h3 className={`text-2xl font-bold mb-2 ${customStyles?.title}`}>{item.title}</h3>
+              <h3 className={`text-2xl font-bold mb-2  ${customStyles?.title}`}>{item.title}</h3>
               <p className={`text-gray-700 ${customStyles?.description}`}>{item.description}</p>
             </div>
           </div>
@@ -57,7 +58,7 @@ const CarouselSeguro = ({ items, customStyles }) => {
       </Slider>
     </div>
   );
-  
+
 };
 
 export default CarouselSeguro;

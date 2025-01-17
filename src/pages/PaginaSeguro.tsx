@@ -6,6 +6,8 @@ import Button from '../components/Button/Button';
 import CarouselSeguro from '../components/CarouselSeguro/Carousel';
 import { carouselSecao1Data } from "../utils/CarouselData/CarouselSecao1Data"
 import { carouselSecao2Data } from '../utils/CarouselData/CarouselSecao2Data';
+import Faq from '../components/Faq/Faq';
+import { faqSegurosData } from "../utils/FaqData/FaqSegurosData"
 
 
 const SeguroPage: React.FC = () => {
@@ -28,6 +30,7 @@ const SeguroPage: React.FC = () => {
 
     const carouselSecao1Items = carouselSecao1Data[id] || [];
     const carouselSecao2Items = carouselSecao2Data[id] || [];
+    const faqSeguros = faqSegurosData[id] || []
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -68,7 +71,9 @@ const SeguroPage: React.FC = () => {
                     <h2 className='text-[2rem]'>O que nosso {card.text} cobre</h2>
 
                 </div>
-                <CarouselSeguro items={carouselSecao2Items} customStyles={{}} />
+                <CarouselSeguro items={carouselSecao2Items} customStyles={{
+                  
+                }} />
             </section >
             <section className='p-16'>
                 <div>
@@ -79,6 +84,7 @@ const SeguroPage: React.FC = () => {
                 <div>
                     <h2 className='text-[2rem]'>Perguntas Frequentes sobre o {card.text}</h2>
                 </div>
+                <Faq items={faqSeguros}/>
             </section >
             <section className='p-16'>
                 <div>
