@@ -35,7 +35,7 @@ const SeguroPage: React.FC = () => {
     const carouselSecao2Items = carouselSecao2Data[id] || [];
     const faqSeguros = faqSegurosData[id] || []
     const destaquesSeguros = destaquesData[id] || []
-    const acionarSeguro = acionarSeguroData[id] || []
+    const acionarSeguro = acionarSeguroData.steps
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -84,7 +84,9 @@ const SeguroPage: React.FC = () => {
                 <div>
                     <h2 className='text-[2rem]'>Precisa acionar o seguro?</h2>
                 </div>
-                <CardList items={acionarSeguro} customStyles={{}}/>
+                <CardList items={acionarSeguro} customStyles={{
+                    title: "font-[600]"
+                }}/>
             </section >
             <section className='p-16'>
                 <div>
