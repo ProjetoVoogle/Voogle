@@ -8,6 +8,9 @@ import { carouselSecao1Data } from "../utils/CarouselData/CarouselSecao1Data"
 import { carouselSecao2Data } from '../utils/CarouselData/CarouselSecao2Data';
 import Faq from '../components/Faq/Faq';
 import { faqSegurosData } from "../utils/FaqData/FaqSegurosData"
+import CardList from "../components/CardList/CardList"
+import { destaquesData } from '../utils/DestaquesData/DestaquesData';
+import { acionarSeguroData } from '../utils/AcionarSeguroData/acionarSeguroData';
 
 
 const SeguroPage: React.FC = () => {
@@ -31,6 +34,8 @@ const SeguroPage: React.FC = () => {
     const carouselSecao1Items = carouselSecao1Data[id] || [];
     const carouselSecao2Items = carouselSecao2Data[id] || [];
     const faqSeguros = faqSegurosData[id] || []
+    const destaquesSeguros = destaquesData[id] || []
+    const acionarSeguro = acionarSeguroData[id] || []
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -79,6 +84,7 @@ const SeguroPage: React.FC = () => {
                 <div>
                     <h2 className='text-[2rem]'>Precisa acionar o seguro?</h2>
                 </div>
+                <CardList items={acionarSeguro} customStyles={{}}/>
             </section >
             <section className='p-16'>
                 <div>
@@ -95,6 +101,9 @@ const SeguroPage: React.FC = () => {
                 <div>
                     <h2 className='text-[2rem]'>Destaques</h2>
                 </div>
+                <CardList items={destaquesSeguros} customStyles={{
+                    title: "text-[1.7rem]"
+                }} />
             </section>
 
             {/* Informações abaixo do vídeo */}
