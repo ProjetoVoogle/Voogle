@@ -17,6 +17,7 @@ const SeguroPage: React.FC = () => {
     const { id } = useParams()
     console.log(id)
     const [card, setCard] = useState<FeatureCardProps | null>(null);
+    const [relatedCards, setRelatedCards] = useState<FeatureCardProps[]>([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,6 +25,12 @@ const SeguroPage: React.FC = () => {
         console.log(selectedCard)
         if (selectedCard) {
             setCard(selectedCard);
+
+            const filteredCards = allCards.filter((item) => item.id !== id);
+            const randomCards = filteredCards
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 3);
+            setRelatedCards(randomCards);
         } else {
             navigate('/');
         }
@@ -71,6 +78,7 @@ const SeguroPage: React.FC = () => {
                 </div>
                 <CarouselSeguro items={carouselSecao1Items} customStyles={{}} />
             </section >
+
             <section className='p-16'>
                 <div>
                     <h2 className='text-[2rem]'>O que nosso {card.text} cobre</h2>
@@ -80,6 +88,7 @@ const SeguroPage: React.FC = () => {
                   
                 }} />
             </section >
+
             <section className='p-16'>
                 <div>
                     <h2 className='text-[2rem]'>Precisa acionar o seguro?</h2>
@@ -88,23 +97,43 @@ const SeguroPage: React.FC = () => {
                     title: "font-[600]"
                 }}/>
             </section >
+
             <section className='p-16'>
                 <div>
                     <h2 className='text-[2rem]'>Perguntas Frequentes sobre o {card.text}</h2>
                 </div>
                 <Faq items={faqSeguros}/>
             </section >
+
             <section className='p-16'>
                 <div>
                     <h2 className='text-[2rem]'>Você também pode gostar</h2>
                 </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mt-10">
+                    {relatedCards.map((relatedCard) => (
+                        <div key={relatedCard.id} className="rounded-lg shadow-lg">
+                            <img 
+                                src={relatedCard.image} 
+                                alt={relatedCard.text} 
+                                className="w-full h-[200px] object-cover rounded-t-lg"
+                            />
+                            <div className='px-4 pb-5'>
+                            <h3 className="text-lg font-semibold mt-2 pb-4">{relatedCard.text}</h3>
+                            <p className="text-sm text-gray-600 pb-4">{relatedCard.description}</p>
+                            <Button label='Saiba Mais' onBtnClick={() => navigate(`/paginaSeguro/${relatedCard.id}`)}></Button>
+                        </div>
+                        </div>
+                    ))}
+                </div>
+
             </section>
+
             <section className='p-16'>
                 <div>
                     <h2 className='text-[2rem]'>Destaques</h2>
                 </div>
                 <CardList items={destaquesSeguros} customStyles={{
-                    title: "text-[1.7rem]"
+                    title: "!text-[1.7rem]"
                 }} />
             </section>
 
