@@ -38,9 +38,9 @@ const CarouselSeguro = ({ items, customStyles }) => {
       <Slider {...settings}>
         {items.map((item, index) => (
           <div key={index} className={`p-4 ${customStyles?.itemContainer}`}>
-            <div className={`flex flex-col gap-4 p-6 rounded-lg text-start ${customStyles?.item}`}>
+            <div className={`flex flex-col gap-4 p-6 rounded-lg text-center lg:text-start md:text-start sm:text-start ${customStyles?.item}`}>
               {item.icon ? (
-                <div className="h-32 flex justify-start items-center text-5xl ">
+                <div className="h-32 flex justify-center lg:justify-start md:justify-start sm:justify-start items-center text-5xl ">
                   <FontAwesomeIcon icon={item.icon} />
                 </div>
               ) : (

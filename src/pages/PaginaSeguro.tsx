@@ -72,84 +72,77 @@ const SeguroPage: React.FC = () => {
             </div>
 
 
-            <section className='relative p-16 flex-grow-1'>
+            <section className='relative lg:p-16 md:p-16 sm:p-11 p-7 flex-grow-1'>
                 <div>
-                    <h2 className='text-[2rem] font-[400]'>Por que contratar o {card.text} da Voogle</h2>
+                    <h2 className='text-[2rem] font-[400] text-center lg:text-start md:text-start sm:text-center'>Por que contratar o {card.text} da Voogle</h2>
                 </div>
                 <CarouselSeguro items={carouselSecao1Items} customStyles={{}} />
             </section >
 
             <section className='p-16'>
                 <div>
-                    <h2 className='text-[2rem]'>O que nosso {card.text} cobre</h2>
+                    <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>O que nosso {card.text} cobre</h2>
 
                 </div>
                 <CarouselSeguro items={carouselSecao2Items} customStyles={{
-                  
+
                 }} />
             </section >
 
             <section className='p-16'>
                 <div>
-                    <h2 className='text-[2rem]'>Precisa acionar o seguro?</h2>
+                    <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Precisa acionar o seguro?</h2>
                 </div>
                 <CardList items={acionarSeguro} customStyles={{
                     title: "font-[600]"
-                }}/>
+                }} />
             </section >
 
-            <section className='p-16'>
+            <section className='lg:p-16 md:p-16 sm:p-11 p-0'>
                 <div>
-                    <h2 className='text-[2rem]'>Perguntas Frequentes sobre o {card.text}</h2>
+                    <h2 className='px-3 text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Perguntas Frequentes sobre o {card.text}</h2>
                 </div>
-                <Faq items={faqSeguros}/>
+                <Faq items={faqSeguros} />
             </section >
 
             <section className='p-16'>
                 <div>
-                    <h2 className='text-[2rem]'>Você também pode gostar</h2>
+                    <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Você também pode gostar</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mt-10">
                     {relatedCards.map((relatedCard) => (
                         <div key={relatedCard.id} className="rounded-lg shadow-lg">
-                            <img 
-                                src={relatedCard.image} 
-                                alt={relatedCard.text} 
+                            <img
+                                src={relatedCard.image}
+                                alt={relatedCard.text}
                                 className="w-full h-[200px] object-cover rounded-t-lg"
                             />
                             <div className='px-4 pb-5'>
-                            <h3 className="text-lg font-semibold mt-2 pb-4">{relatedCard.text}</h3>
-                            <p className="text-sm text-gray-600 pb-4">{relatedCard.description}</p>
-                            <Button label='Saiba Mais' onBtnClick={() => navigate(`/paginaSeguro/${relatedCard.id}`)}></Button>
-                        </div>
+                                <h3 className="text-lg font-semibold mt-2 pb-4">{relatedCard.text}</h3>
+                                <p className="text-sm text-gray-600 pb-4">{relatedCard.description}</p>
+                                <Button label='Saiba Mais' onBtnClick={() => navigate(`/paginaSeguro/${relatedCard.id}`)}></Button>
+                            </div>
                         </div>
                     ))}
                 </div>
 
             </section>
 
-            <section className='p-16'>
+            <section className='p-16 mb-[4rem]'>
                 <div>
-                    <h2 className='text-[2rem]'>Destaques</h2>
+                    <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Destaques</h2>
                 </div>
                 <CardList items={destaquesSeguros} customStyles={{
                     title: "!text-[1.7rem]"
                 }} />
             </section>
 
-            {/* Informações abaixo do vídeo */}
-            <div className="relative z-20 flex-grow p-16 bg-gray-100 text-gray-900">
+            <section className='flex w-full bg-[#007fff] h-[5rem] items-center justify-center'>
+                <h2 className='text-center text-white font-bold uppercase text-lg cursor-pointer hover:scale-[1.02] transition duration-200 ease-in-out'>Quero um {card.text}</h2>
+            </section>
 
-                <div className="mt-6">
-                    <h2 className="text-2xl font-semibold mb-4">Detalhes</h2>
-                    <p className="text-sm mb-4">Categoria: {card.category}</p>
-                    <div className="bg-[#E6F4E6] text-[#44537A] font-bold text-sm rounded-md p-2">
-                        <span>12 meses de anuidade grátis.</span>
-                    </div>
-                </div>
-                <Button label={`Quero um ${card.text}`}>
-                </Button>
-            </div>
+           
+            
         </div>
 
 
