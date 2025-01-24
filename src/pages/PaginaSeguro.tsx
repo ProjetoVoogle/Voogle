@@ -47,7 +47,7 @@ const SeguroPage: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Seção do Vídeo */}
-            <div className="relative h-[60vh]">
+            <section className="relative h-[60vh]">
                 <div className='p-8 absolute z-10 right-0 pr-10 '>
                     <Button label="Voltar" onBtnClick={() => navigate("/")} className='bg-white bg-opacity-[0.8]' />
                 </div>
@@ -65,11 +65,11 @@ const SeguroPage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 {/* Conteúdo no vídeo */}
-                <div className="absolute bottom-0 z-10 flex flex-col items-start p-16 text-white">
+                <div className="absolute bottom-0 z-10 flex flex-col items-start p-7 lg:p-16 md:p-16 sm:p-16 text-white">
                     <h1 className="text-4xl font-bold mb-4">{card.text}</h1>
                     <p className="text-lg mb-6">{card.description}</p>
                 </div>
-            </div>
+            </section>
 
 
             <section className='relative lg:p-16 md:p-16 sm:p-11 p-7 flex-grow-1'>
@@ -79,7 +79,7 @@ const SeguroPage: React.FC = () => {
                 <CarouselSeguro items={carouselSecao1Items} customStyles={{}} />
             </section >
 
-            <section className='p-16'>
+            <section className='lg:p-16 md:p-16 sm:p-11 p-7'>
                 <div>
                     <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>O que nosso {card.text} cobre</h2>
 
@@ -89,7 +89,7 @@ const SeguroPage: React.FC = () => {
                 }} />
             </section >
 
-            <section className='p-16'>
+            <section className='lg:p-16 md:p-16 sm:p-11 p-7'>
                 <div>
                     <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Precisa acionar o seguro?</h2>
                 </div>
@@ -105,7 +105,7 @@ const SeguroPage: React.FC = () => {
                 <Faq items={faqSeguros} />
             </section >
 
-            <section className='p-16'>
+            <section className='lg:p-16 md:p-16 sm:p-11 p-7'>
                 <div>
                     <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Você também pode gostar</h2>
                 </div>
@@ -128,7 +128,7 @@ const SeguroPage: React.FC = () => {
 
             </section>
 
-            <section className='p-16 mb-[4rem]'>
+            <section className='lg:p-16 md:p-16 sm:p-11 p-7 mb-[4rem]'>
                 <div>
                     <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Destaques</h2>
                 </div>

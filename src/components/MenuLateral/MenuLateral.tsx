@@ -17,22 +17,24 @@ const MenuLateral: React.FC<MenuLateralProps> = ({ onClose, isOpen }) => {
     if (activeTab === "ParaVocê") {
       return (
         <div className="grid grid-cols-2 gap-4 p-4">
-          <a href="#" className="hover:text-blue-500 block font-medium">Seguro Auto</a>
-          <a href="#" className="hover:text-blue-500 block font-medium">Seguro Residencial</a>
-          <a href="#" className="hover:text-blue-500 block font-medium">Seguro Viagem</a>
-          <a href="#" className="hover:text-blue-500 block font-medium">Seguro Celular</a>
-          <a href="#" className="hover:text-blue-500 block font-medium">Seguro Vida</a>
+          <a href={`/paginaSeguro/seguroAuto`} className="hover:text-blue-500 block">Seguro Auto</a>
+          <a href={`/paginaSeguro/seguroSaude`} className="hover:text-blue-500 block">Seguro Saúde</a>
+          <a href={`/paginaSeguro/seguroVida`} className="hover:text-blue-500 block">Seguro de Vida</a>
+          <a href={`/paginaSeguro/financiamentoConsorcio`} className="hover:text-blue-500 block">Financiamentos e Consórcios</a>
+          <a href={`/paginaSeguro/seguroEletroeletronicos`} className="hover:text-blue-500 block">Seguro de Eletroeletrônicos</a>
+          <a href={`/paginaSeguro/seguroViagem`} className="hover:text-blue-500 block">Seguro de Viagem</a>
+          <a href={`/paginaSeguro/seguroFinanceiro`} className="hover:text-blue-500 block">Seguro Financeiro</a>
         </div>
       );
     }
     return (
       <div className="grid grid-cols-2 gap-4 p-4">
-        <a href="#" className="hover:text-blue-500 block font-medium">Proteção Combinada</a>
-        <a href="#" className="hover:text-blue-500 block font-medium">Responsabilidade Civil</a>
-        <a href="#" className="hover:text-blue-500 block font-medium">Seguro Fiança</a>
-        <a href="#" className="hover:text-blue-500 block font-medium">Máquinas e Equipamentos</a>
-        <a href="#" className="hover:text-blue-500 block font-medium">Eventos</a>
-        <a href="#" className="hover:text-blue-500 block font-medium">Caminhão</a>
+         <a href={`/paginaSeguro/seguroEmpresarial`} className="hover:text-blue-500 block">Seguro Empresarial</a>
+          <a href={`/paginaSeguro/seguroGarantia`} className="hover:text-blue-500 block">Seguro de Garantia</a>
+          <a href={`/paginaSeguro/seguroObra`} className="hover:text-blue-500 block">Seguro de Obras e Locações</a>
+          <a href={`/paginaSeguro/MáquinasEEquipamentos`} className="hover:text-blue-500 block">Máquinas e Equipamentos</a>
+          <a href={`/paginaSeguro/Eventos`} className="hover:text-blue-500 block">Eventos</a>
+          <a href={`/paginaSeguro/Caminhão`} className="hover:text-blue-500 block">Caminhão</a>
       </div>
     );
   };
@@ -71,8 +73,8 @@ const MenuLateral: React.FC<MenuLateralProps> = ({ onClose, isOpen }) => {
               <button
                 onClick={() => setActiveTab("ParaVocê")}
                 className={`px-4 py-1 rounded transition-colors border-2 border-[#44537A] text-[#44537A] font-bold shadow-[0px_3px_8px_rgba(0,0,0,0.24)] cursor-pointer ${activeTab === "ParaVocê"
-                    ? "bg-blue-500 text-white"
-                    : "bg-white hover:bg-gray-300"
+                  ? "bg-blue-500 text-white"
+                  : "bg-white hover:bg-gray-300"
                   }`}
               >
                 Para Você
@@ -80,8 +82,8 @@ const MenuLateral: React.FC<MenuLateralProps> = ({ onClose, isOpen }) => {
               <button
                 onClick={() => setActiveTab("ParaEmpresa")}
                 className={`px-4 py-1 rounded transition-colors border-2 border-[#44537A] text-[#44537A] font-bold shadow-[0px_3px_8px_rgba(0,0,0,0.24)] cursor-pointer ${activeTab === "ParaEmpresa"
-                    ? "bg-blue-500 text-white"
-                    : "bg-white hover:bg-gray-300"
+                  ? "bg-blue-500 text-white"
+                  : "bg-white hover:bg-gray-300"
                   }`}
               >
                 Para Empresa
