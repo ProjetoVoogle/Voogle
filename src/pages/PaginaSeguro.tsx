@@ -4,13 +4,14 @@ import { allCards } from '../utils/CardsSeguros'; // Importar a lista de seguros
 import { FeatureCardProps } from '../components/Card/FeatureCard';
 import Button from '../components/Button/Button';
 import CarouselSeguro from '../components/CarouselSeguro/Carousel';
-import { carouselSecao1Data } from "../utils/CarouselData/CarouselSecao1Data"
-import { carouselSecao2Data } from '../utils/CarouselData/CarouselSecao2Data';
+import { carouselSecao1Data } from "../data/CarouselData/CarouselSecao1Data"
+import { carouselSecao2Data } from '../data/CarouselData/CarouselSecao2Data';
 import Faq from '../components/Faq/Faq';
-import { faqSegurosData } from "../utils/FaqData/FaqSegurosData"
+import { faqSegurosData } from "../data/FaqData/FaqSegurosData"
 import CardList from "../components/CardList/CardList"
-import { destaquesData } from '../utils/DestaquesData/DestaquesData';
-import { acionarSeguroData } from '../utils/AcionarSeguroData/acionarSeguroData';
+import { destaquesData } from '../data/DestaquesData/DestaquesData';
+import { acionarSeguroData } from '../data/AcionarSeguroData/acionarSeguroData';
+import { propagandaData } from '../data/PropagandaData/propagandaData';
 
 
 const SeguroPage: React.FC = () => {
@@ -46,6 +47,7 @@ const SeguroPage: React.FC = () => {
     const faqSeguros = faqSegurosData[id] || []
     const destaquesSeguros = destaquesData[id] || []
     const acionarSeguro = acionarSeguroData.steps
+    const propagandas = propagandaData.propagandas 
 
     const carouselContent = (
         <section className="lg:p-16 md:p-16 sm:p-11 p-7">
@@ -53,11 +55,11 @@ const SeguroPage: React.FC = () => {
                 <hr className='mb-[2rem]' />
             </div>
 
-            <CarouselSeguro items={relatedCards} customStyles={{
+            <CarouselSeguro items={propagandas} customStyles={{
                 container: "mx-auto",
                 itemContainer: "flex justify-center",
                 item: "w-full",
-                img: "min-h-[20rem]",
+                img: "min-h-[30rem]",
                 title: "hidden",
                 description: "hidden"
             }}
@@ -65,7 +67,7 @@ const SeguroPage: React.FC = () => {
                 customSettings={{
                     slidesToShow: 1,
                     autoplay: true,
-                    autoplaySpeed: 2500,
+                    autoplaySpeed: 2300,
                     pauseOnHover: true,
                     dots: true,
                     infinite: true,
@@ -126,7 +128,7 @@ const SeguroPage: React.FC = () => {
                 <div>
                     <h2 className='text-[2rem] font-[400] text-center lg:text-start md:text-start sm:text-center'>Por que contratar o {card.text} da Voogle</h2>
                 </div>
-                <CarouselSeguro items={carouselSecao1Items} customStyles={{}} />
+                <CarouselSeguro items={carouselSecao1Items} customStyles={{}} customSettings={{}} />
             </section >
 
             <section className='lg:p-16 md:p-16 sm:p-11 p-7'>
@@ -136,7 +138,7 @@ const SeguroPage: React.FC = () => {
                 </div>
                 <CarouselSeguro items={carouselSecao2Items} customStyles={{
 
-                }} />
+                }} customSettings={{}} />
             </section >
 
             {showCarouselBefore && carouselContent}
