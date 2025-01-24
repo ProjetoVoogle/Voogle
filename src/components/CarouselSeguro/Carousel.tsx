@@ -4,8 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const CarouselSeguro = ({ items, customStyles }) => {
-  const settings = {
+const CarouselSeguro = ({ items, customStyles, customSettings }) => {
+  const defaultSettings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -33,6 +33,8 @@ const CarouselSeguro = ({ items, customStyles }) => {
     ],
   };
 
+  const settings = { ...defaultSettings, ...customSettings };
+
   return (
     <div className={`relative ${customStyles?.container}`}>
       <Slider {...settings}>
@@ -47,7 +49,7 @@ const CarouselSeguro = ({ items, customStyles }) => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-[13rem] object-cover rounded-[8px]"
+                  className={`w-full h-[13rem] object-cover rounded-[8px] ${customStyles?.img}`}
                 />
               )}
               <h3 className={`text-2xl font-bold mb-2  ${customStyles?.title}`}>{item.title}</h3>

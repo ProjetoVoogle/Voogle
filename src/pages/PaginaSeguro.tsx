@@ -19,6 +19,7 @@ const SeguroPage: React.FC = () => {
     const [card, setCard] = useState<FeatureCardProps | null>(null);
     const [relatedCards, setRelatedCards] = useState<FeatureCardProps[]>([]);
     const navigate = useNavigate();
+    const [showCarouselBefore, setShowCarouselBefore] = useState<boolean>(true);
 
     useEffect(() => {
         const selectedCard = allCards.find((card: { id: string; }) => card.id === id);
@@ -34,6 +35,8 @@ const SeguroPage: React.FC = () => {
         } else {
             navigate('/');
         }
+
+        setShowCarouselBefore(Math.random() < 0.5);
     }, [id, navigate]);
 
     if (!card) return <div>Carregando...</div>;
@@ -43,6 +46,53 @@ const SeguroPage: React.FC = () => {
     const faqSeguros = faqSegurosData[id] || []
     const destaquesSeguros = destaquesData[id] || []
     const acionarSeguro = acionarSeguroData.steps
+
+    const carouselContent = (
+        <section className="lg:p-16 md:p-16 sm:p-11 p-7">
+            <div>
+                <hr className='mb-[2rem]' />
+            </div>
+
+            <CarouselSeguro items={relatedCards} customStyles={{
+                container: "mx-auto",
+                itemContainer: "flex justify-center",
+                item: "w-full",
+                img: "min-h-[20rem]",
+                title: "hidden",
+                description: "hidden"
+            }}
+
+                customSettings={{
+                    slidesToShow: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2500,
+                    pauseOnHover: true,
+                    dots: true,
+                    infinite: true,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 1,
+                            },
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                            },
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                            },
+                        },
+                    ],
+                }}
+            />
+        </section>
+    );
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -89,6 +139,8 @@ const SeguroPage: React.FC = () => {
                 }} />
             </section >
 
+            {showCarouselBefore && carouselContent}
+
             <section className='lg:p-16 md:p-16 sm:p-11 p-7'>
                 <div>
                     <h2 className='text-[2rem] text-center lg:text-start md:text-start sm:text-center'>Precisa acionar o seguro?</h2>
@@ -104,6 +156,8 @@ const SeguroPage: React.FC = () => {
                 </div>
                 <Faq items={faqSeguros} />
             </section >
+
+            {!showCarouselBefore && carouselContent}
 
             <section className='lg:p-16 md:p-16 sm:p-11 p-7'>
                 <div>
@@ -141,8 +195,8 @@ const SeguroPage: React.FC = () => {
                 <h2 className='text-center text-white font-bold uppercase text-lg cursor-pointer hover:scale-[1.02] transition duration-200 ease-in-out'>Quero um {card.text}</h2>
             </section>
 
-           
-            
+
+
         </div>
 
 
