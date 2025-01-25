@@ -3,8 +3,11 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CarouselType } from '../../types/CarouselType/CarouselType';
 
-const CarouselSeguro = ({ items, customStyles, customSettings }) => {
+
+
+const CarouselSeguro: React.FC<CarouselType> = ({ items, customStyles, customSettings }) => {
   const defaultSettings = {
     dots: true,
     infinite: true,
@@ -40,9 +43,9 @@ const CarouselSeguro = ({ items, customStyles, customSettings }) => {
       <Slider {...settings}>
         {items.map((item, index) => (
           <div key={index} className={`p-4 md:px-0 ${customStyles?.itemContainer}`}>
-            <div className={`flex flex-col gap-4 p-6 rounded-lg text-center lg:text-start md:text-start sm:text-start ${customStyles?.item}`}>
+            <div className={`flex flex-col gap-4 p-6 rounded-lg text-center lg:text-start md:text-start sm:text-center ${customStyles?.item}`}>
               {item.icon ? (
-                <div className="h-32 flex justify-center lg:justify-start md:justify-start sm:justify-start items-center text-5xl ">
+                <div className="h-32 flex justify-center lg:justify-start md:justify-start sm:justify-center items-center text-5xl ">
                   <FontAwesomeIcon icon={item.icon} />
                 </div>
               ) : (

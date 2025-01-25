@@ -56,7 +56,7 @@ const SeguroPage: React.FC = () => {
             </div>
 
             <CarouselSeguro items={propagandas} customStyles={{
-                container: "mx-auto",
+                container: "mx-auto cursor-pointer",
                 itemContainer: "flex justify-center",
                 item: "w-full",
                 img: "min-h-[30rem]",
@@ -137,7 +137,7 @@ const SeguroPage: React.FC = () => {
 
                 </div>
                 <CarouselSeguro items={carouselSecao2Items} customStyles={{
-
+                    
                 }} customSettings={{}} />
             </section >
 
