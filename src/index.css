@@ -7,3 +7,16 @@
 body {
     font-family: 'Poppins', sans-serif;
   }
+
+  .carouselCardsCliente .slick-slide {
+    display: flex !important;
+    margin: 0;
+}
+
+.carouselCardsCliente .slick-track {
+    display: flex;
+    gap: 25px;
+}
+
+ 
+

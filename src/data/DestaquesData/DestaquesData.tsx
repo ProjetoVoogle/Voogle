@@ -54,14 +54,14 @@ export const destaquesData = {
           ],
         },
         {
-          image: "https://example.com/viagem.jpg",
+          image: "https://www.melhoresdestinos.com.br/wp-content/uploads/2020/05/melhor-seguro-viagem-capa2019-03.jpg",
           title: "Por que contratar um seguro de viagem no Brasil?",
           buttons: [
             { label: "Saiba Mais", onClick: () => console.log("Clicou em Saiba Mais") },
           ],
         },
         {
-          image: "https://example.com/familia.jpg",
+          image: "https://coralplaza.com.br/wp-content/uploads/2017/12/139161-por-que-uma-viagem-em-familia-pode-ajudar-a-estreitar-os-lacos-1.jpg",
           title: "Como funciona o seguro de viagem para famílias?",
           buttons: [
             { label: "Saiba Mais", onClick: () => console.log("Clicou em Saiba Mais") },

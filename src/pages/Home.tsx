@@ -3,8 +3,15 @@ import NavBar from "../components/Navbar/Navbar.tsx";
 import useFavicon from "../hooks/useFavicon.ts";
 import useDocumentTitle from "../hooks/useTitle.ts";
 import Button from "../components/Button/Button.tsx";
+
 import SeguroCarousel from "../utils/CardsSeguros.tsx";
-import ClientesCarousel from "../utils/CardsClients.tsx";
+import { CardsSegurosData } from "../data/Seguros/CardsSegurosData.tsx";
+
+
+import CardsClients from "../utils/CardsClients.tsx";
+import { ComentariosClientesData } from "../data/Clientes/ComentariosClientesData.tsx";
+
+
 import { envioMsg } from "../utils/envioMsg.ts";
 import seguroSaudeImg from "../imgs/seguroSaude.png";
 import seguroVeiculoImg from "../imgs/seguroVeiculo.jpeg";
@@ -22,6 +29,8 @@ import {
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
+
+
 
 function Home() {
   useDocumentTitle("Home");
@@ -449,7 +458,7 @@ function Home() {
         {/* Seguro 4 */}
         <div
           id="Seguro4"
-          className="flex flex-col gap-4 items-center justify-center w-[48%]"
+          className="flex flex-col gap-4 mt-[5%] items-center justify-center w-[48%]"
           data-aos="fade-up-left"
         >
           {/* Imagem */}
@@ -563,7 +572,7 @@ function Home() {
           data-aos-duration="1000"
           className="flex justify-center"
         >
-          <SeguroCarousel />
+          <SeguroCarousel allCards={ CardsSegurosData } />
         </div>
       </section>
 
@@ -615,7 +624,7 @@ function Home() {
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <ClientesCarousel />
+            <CardsClients items={ComentariosClientesData} visibleCards={2}/>
           </div>
         </div>
       </section>

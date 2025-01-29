@@ -15,6 +15,7 @@ export interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
+  
   text,
   description,
   image,

@@ -6,22 +6,22 @@ export const carouselSecao1Data = {
       description: 'Cobertura para despesas médicas e emergências durante a viagem.',
     },
     {
-      image: '/path-to-image2.jpg',
+      image: 'https://cdn.panrotas.com.br/portal-panrotas-statics/media-files-cache/216051/00631b3fc2e786cf65ae32458bc08569viajantecorporativobleisure/0,27,1280,764/670,400,0.37/0/default.jpg',
       title: 'Cancelamento de viagem',
       description: 'Reembolso em caso de cancelamento por imprevistos cobertos.',
     },
     {
-      image: '/path-to-image3.jpg',
+      image: 'https://cancelou.com/wp-content/uploads/2024/03/Bagagem-de-mao-medidas-peso-e-o-que-e-permitido-levar-CANCELOU-COMPENSACAO-PELOS-PROBLEMAS-DE-VOO_V01.webp',
       title: 'Seguro para bagagem',
       description: 'Proteção contra perda, roubo ou danos à sua bagagem.',
     },
     {
-      image: '/path-to-image4.jpg',
+      image: 'https://img.freepik.com/vetores-premium/atendimento-ao-cliente-24-horas-sem-parar_18660-5099.jpg',
       title: 'Atendimento 24 horas',
       description: 'Suporte global para emergências, a qualquer momento.',
     },
     {
-      image: '/path-to-image5.jpg',
+      image: 'https://www.adrena.me/blog/wp-content/uploads/2019/10/Esportes-Radicais-1.jpg',
       title: 'Cobertura de esportes radicais',
       description: 'Proteção para atividades como esqui, mergulho e muito mais.',
     },

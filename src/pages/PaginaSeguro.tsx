@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { allCards } from '../utils/CardsSeguros'; // Importar a lista de seguros
+import { CardsSegurosData } from '../data/Seguros/CardsSegurosData';// Importar a lista de seguros
 import { FeatureCardProps } from '../components/Card/FeatureCard';
 import Button from '../components/Button/Button';
 import CarouselSeguro from '../components/CarouselSeguro/Carousel';
@@ -12,10 +12,19 @@ import CardList from "../components/CardList/CardList"
 import { destaquesData } from '../data/DestaquesData/DestaquesData';
 import { acionarSeguroData } from '../data/AcionarSeguroData/acionarSeguroData';
 import { propagandaData } from '../data/PropagandaData/propagandaData';
-
+import useDocumentTitle from '../hooks/useTitle';
+import useFavicon from '../hooks/useFavicon';
 
 const SeguroPage: React.FC = () => {
+    
     const { id } = useParams()
+    
+
+    const selectedCard = CardsSegurosData.find((card: { id: string; }) => card.id === id)
+
+    useDocumentTitle(`${selectedCard?.text}`)
+    useFavicon(`https://cdn-icons-png.flaticon.com/512/10703/10703030.png`)
+    
     console.log(id)
     const [card, setCard] = useState<FeatureCardProps | null>(null);
     const [relatedCards, setRelatedCards] = useState<FeatureCardProps[]>([]);
@@ -23,12 +32,12 @@ const SeguroPage: React.FC = () => {
     const [showCarouselBefore, setShowCarouselBefore] = useState<boolean>(true);
 
     useEffect(() => {
-        const selectedCard = allCards.find((card: { id: string; }) => card.id === id);
+        const selectedCard = CardsSegurosData.find((card: { id: string; }) => card.id === id);
         console.log(selectedCard)
         if (selectedCard) {
             setCard(selectedCard);
 
-            const filteredCards = allCards.filter((item) => item.id !== id);
+            const filteredCards = CardsSegurosData.filter((item) => item.id !== id);
             const randomCards = filteredCards
                 .sort(() => Math.random() - 0.5)
                 .slice(0, 3);
@@ -126,7 +135,7 @@ const SeguroPage: React.FC = () => {
 
             <section className='relative lg:p-16 md:p-16 sm:p-11 p-7 flex-grow-1'>
                 <div>
-                    <h2 className='text-[2rem] font-[400] text-center lg:text-start md:text-start sm:text-center'>Por que contratar o {card.text} da Voogle</h2>
+                    <h2 className='text-[2rem] font-[400] text-center lg:text-start md:text-start sm:text-center'>Por que contratar o {card.text} da <span className='text-[#007fff] font-semibold'>Voogle</span></h2>
                 </div>
                 <CarouselSeguro items={carouselSecao1Items} customStyles={{}} customSettings={{}} />
             </section >
