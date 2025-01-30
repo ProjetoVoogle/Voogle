@@ -497,7 +497,7 @@ function Home() {
         id="SecaoVantagens"
       >
         <h1
-          className="text-[24px] lg:text-4x1 sm:text-3xl md:text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
+          className="text-[24px] lg:text-4x1 sm:text-3xl md:text-4xl font-semibold text-center mb-8 mt-8 text-[#1D2745]"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
@@ -560,7 +560,7 @@ function Home() {
         id="SecaoCarrossel"
       >
         <h1
-          className="text-2xl font-bold text-center mb-8 mt-8 text-[#1D2745] lg:text-4x1 sm:text-3xl md:text-4xl"
+          className="text-2xl font-semibold text-center mb-8 mt-8 text-[#1D2745] lg:text-4x1 sm:text-3xl md:text-4xl"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
@@ -579,11 +579,11 @@ function Home() {
       {/*Seção dos Depoimentos de Clientes*/}
 
       <section
-        className="mt-[7%] mb-[7%] px-4 md:px-20 lg:px-40 w-[90%] text-justify"
+        className="mt-[7%] mb-[7%] px-4 md:px-20 lg:px-40 w-[90%] text-justify secao"
         id="SecaoDepoimentos"
       >
         <h1
-          className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 mt-8 text-[#1D2745]"
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold  text-center mb-8 mt-8 text-[#1D2745]"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
@@ -620,7 +620,7 @@ function Home() {
 
           {/* Carrossel de clientes */}
           <div
-            className="w-[100%] ml-[-5%] lg:ml-[0] lg:w-[60%] mt-8 lg:mt-0"
+            className="w-[100%] lg:ml-[0] lg:w-[60%] mt-8 lg:mt-0 justify-center"
             data-aos="fade-left"
             data-aos-duration="1000"
           >

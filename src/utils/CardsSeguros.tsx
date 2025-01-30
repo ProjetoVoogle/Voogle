@@ -47,7 +47,7 @@ const SeguroCarousel: React.FC<CardSeguroType> = ({ allCards }) => {
             // Para monitores menores ou tablets (768px a 1024px)
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
+              slidesToShow: 2,
               slidesToScroll: 1,
             },
           },
@@ -91,62 +91,64 @@ const SeguroCarousel: React.FC<CardSeguroType> = ({ allCards }) => {
       </div>
 
       {/* Carrossel */}
-      <div className="px-4 md:px-20 lg:px-40 space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8 ">
-        <Slider {...settings} className="flex !gap-[5rem] py-6 h-auto">
+      <div className="px-6 md:px-20 lg:px-40 sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8">
+        <Slider {...settings} className={"flex !gap-[5rem] py-6 h-auto carouselSeguros"}>
           {filteredCards.map((card, index) => (
-            <Link to={`/paginaSeguro/${card.id}`} key={index}>
-              <div
-                className="bg-white mb-10 shadow-lg w-[300px] max-w-full flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] overflow-hidden cursor-pointer group"
-                data-aos="fade-up"
-                data-aos-duration="1000"
-                data-aos-delay={`${index * 250}`}
-                onMouseEnter={(e) => {
-                  const video = e.currentTarget.querySelector("video");
-                  if (video) {
-                    video.play();
-                    const maxTime = 5;
-                    video.ontimeupdate = () => {
-                      if (video.currentTime > maxTime) {
-                        video.currentTime = 0;
-                      }
-                    };
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  const video = e.currentTarget.querySelector("video");
-                  if (video) video.pause();
-                }}
-              >
-                <div className="flex relative">
-                  {/* Imagem fixa e vídeo no hover */}
-                  <img
-                    src={card.image}
-                    alt={card.text}
-                    className="w-full h-[150px] object-cover transition-opacity duration-300 group-hover:opacity-0"
-                  />
-                  <video
-                    src={card.video}
-                    className="w-full h-[150px] object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                    muted
-                    loop
-                  />
+            <div key={index} className="px-2">
+              <Link to={`/paginaSeguro/${card.id}`}>
+                <div
+                  className="bg-white mb-10 shadow-lg w-[300px] max-w-full flex-shrink-0 text-left flex flex-col relative rounded-[12px] border border-[#E0E0E0] overflow-hidden cursor-pointer group"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay={`${index * 250}`}
+                  onMouseEnter={(e) => {
+                    const video = e.currentTarget.querySelector("video");
+                    if (video) {
+                      video.play();
+                      const maxTime = 5;
+                      video.ontimeupdate = () => {
+                        if (video.currentTime > maxTime) {
+                          video.currentTime = 0;
+                        }
+                      };
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    const video = e.currentTarget.querySelector("video");
+                    if (video) video.pause();
+                  }}
+                >
+                  <div className="flex relative">
+                    {/* Imagem fixa e vídeo no hover */}
+                    <img
+                      src={card.image}
+                      alt={card.text}
+                      className="w-full h-[150px] object-cover transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <video
+                      src={card.video}
+                      className="w-full h-[150px] object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      muted
+                      loop
+                    />
+                  </div>
+                  <div className="px-4 pt-3 flex-grow">
+                    <h2 className="text-lg font-bold text-[#000] mb-2 truncate">
+                      {card.text}
+                    </h2>
+                    <p className="text-sm text-[#555] leading-relaxed line-clamp-2">
+                      {card.description}
+                    </p>
+                  </div>
+                  <div className="bg-[#E6F4E6] text-[#44537A] font-bold text-sm rounded-md p-2 mx-4 mb-4 flex items-center gap-2">
+                    <span className="">
+                      <FontAwesomeIcon icon={faMoneyBill} />
+                    </span>
+                    12 meses de anuidade grátis.
+                  </div>
                 </div>
-                <div className="px-4 pt-3 flex-grow">
-                  <h2 className="text-lg font-bold text-[#000] mb-2 truncate">
-                    {card.text}
-                  </h2>
-                  <p className="text-sm text-[#555] leading-relaxed line-clamp-2">
-                    {card.description}
-                  </p>
-                </div>
-                <div className="bg-[#E6F4E6] text-[#44537A] font-bold text-sm rounded-md p-2 mx-4 mb-4 flex items-center gap-2">
-                  <span className="">
-                    <FontAwesomeIcon icon={faMoneyBill} />
-                  </span>
-                  12 meses de anuidade grátis.
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </Slider>
       </div>

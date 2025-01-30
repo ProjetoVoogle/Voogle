@@ -18,5 +18,31 @@ body {
     gap: 25px;
 }
 
+.carouselCardsCliente .slick-slide {
+  margin: 0 10px; /* Adiciona um gap entre os slides */
+}
+
+.carouselCardsCliente .slick-list {
+  margin: 0 -10px; /* Compensa o margin dos slides */
+}
+
+@media (max-width: 768px) {
+  .carouselCardsCliente .slick-slide {
+    margin: 0 5px; /* Gap menor para telas menores */
+  }
+
+  .carouselCardsCliente .slick-list {
+    margin: 0 -5px; /* Compensa o margin dos slides */
+  }
+}
+
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+  .secao {
+    padding: 0 !important;
+  }
+}
+
+
  
 
